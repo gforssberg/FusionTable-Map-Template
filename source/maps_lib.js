@@ -18,29 +18,29 @@ var MapsLib = {
 
   //the encrypted Table ID of your Fusion Table (found under File => About)
   //NOTE: numeric IDs will be depricated soon
-  fusionTableId:      "1fUylcSUnEfjaaOMiOlqWN2XhxUdyQjmONODekC8",
+  fusionTableId: "1fUylcSUnEfjaaOMiOlqWN2XhxUdyQjmONODekC8",
 
   //*New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
   //*Important* this key is for demonstration purposes. please register your own.
-  googleApiKey:       "AIzaSyDtJXRQCXB-WlDve_nLtHbeDjj3q4saCag",
+  googleApiKey: "AIzaSyDtJXRQCXB-WlDve_nLtHbeDjj3q4saCag",
 
   //name of the location column in your Fusion Table.
   //NOTE: if your location column name has spaces in it, surround it with single quotes
   //example: locationColumn:     "'my location'",
-  locationColumn:     "Latitude",
+  locationColumn: "Latitude",
 
-  map_centroid:       new google.maps.LatLng(41.8781136, -87.66677856445312), //center that your map defaults to
-  locationScope:      "chicago",      //geographical area appended to all address searches
-  recordName:         "Action",       //for showing number of results
-  recordNamePlural:   "Actions",
+  map_centroid: new google.maps.LatLng(41.8781136, -87.66677856445312), //center that your map defaults to
+  locationScope: "chicago", //geographical area appended to all address searches
+  recordName: "Action", //for showing number of results
+  recordNamePlural: "Actions",
 
-  searchRadius:       805,            //in meters ~ 1/2 mile
-  defaultZoom:        11,             //zoom level when map is loaded (bigger is more zoomed in)
+  searchRadius: 805, //in meters ~ 1/2 mile
+  defaultZoom: 11, //zoom level when map is loaded (bigger is more zoomed in)
   addrMarkerImage: 'http://derekeder.com/images/icons/blue-pushpin.png',
   currentPinpoint: null,
 
   initialize: function() {
-    $( "#result_count" ).html("");
+    $("#result_count").html("");
 
     geocoder = new google.maps.Geocoder();
     var myOptions = {
@@ -48,15 +48,16 @@ var MapsLib = {
       center: MapsLib.map_centroid,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    map = new google.maps.Map($("#map_canvas")[0],myOptions);
+    map = new google.maps.Map($("#map_canvas")[0], myOptions);
 
     // maintains map centerpoint for responsive design
     google.maps.event.addDomListener(map, 'idle', function() {
-        MapsLib.calculateCenter();
+      a
+      MapsLib.calculateCenter();
     });
 
     google.maps.event.addDomListener(window, 'resize', function() {
-        map.setCenter(MapsLib.map_centroid);
+      map.setCenter(MapsLib.map_centroid);
     });
 
     MapsLib.searchrecords = null;
@@ -68,9 +69,54 @@ var MapsLib = {
     else $("#search_radius").val(MapsLib.searchRadius);
     $(":checkbox").attr("checked", "checked");
     $("#result_count").hide();
-    
+
+    //ranges for our slider
+    var minDate = moment("Jan 1 2010"); // Jan 1st 2010
+    var maxDate = moment(); //now
+
+    //starting values
+    var startDate = moment().subtract('months', 3); //past 3 months
+    var endDate = moment(); //now
+
+    MapsLib.initializeDateSlider(minDate, maxDate, startDate, endDate, "days", 7);
+
     //-----custom initializers-------
-    
+
+    initializeDateSlider: function(minDate, maxDate, startDate, endDate, stepType, step) {
+      var interval = MapsLib.sliderInterval(stepType);
+
+      $('#minDate').html(minDate.format('MMM YYYY'));
+      $('#maxDate').html(maxDate.format('MMM YYYY'));
+
+      $('#startDate').html(startDate.format('L'));
+      $('#endDate').html(endDate.format('L'));
+
+      $('#date-range').slider({
+        range: true,
+        step: step,
+        values: [Math.floor((startDate.valueOf() - minDate.valueOf()) / interval), Math.floor((maxDate.valueOf() - minDate.valueOf()) / interval)],
+        max: Math.floor((maxDate.valueOf() - minDate.valueOf()) / interval),
+        slide: function(event, ui) {
+          $('#startDate').html(minDate.clone().add(stepType, ui.values[0]).format('L'));
+          $('#endDate').html(minDate.clone().add(stepType, ui.values[1]).format('L'));
+        },
+        stop: function(event, ui) {
+          MapsLib.doSearch();
+        }
+      });
+    }
+
+    sliderInterval: function(interval) {
+      if (interval == "years") return 365 * 24 * 3600 * 1000;
+      if (interval == "quarters") return 3 * 30.4 * 24 * 3600 * 1000;
+      if (interval == "months") //this is very hacky. months have different day counts, so our point interval is the average - 30.4
+      return 30.4 * 24 * 3600 * 1000;
+      if (interval == "weeks") return 7 * 24 * 3600 * 1000;
+      if (interval == "days") return 24 * 3600 * 1000;
+      if (interval == "hours") return 3600 * 1000;
+      else return 1;
+    }
+
     //-----end of custom initializers-------
 
     //run the default search
@@ -86,13 +132,17 @@ var MapsLib = {
 
     //-----custom filters-------
 
+    whereClause += " AND 'Year' >= '" + $('#startDate').html() + "'";
+    whereClause += " AND 'Year' <= '" + $('#endDate').html() + "'";
+
     //-------end of custom filters--------
 
     if (address != "") {
-      if (address.toLowerCase().indexOf(MapsLib.locationScope) == -1)
-        address = address + " " + MapsLib.locationScope;
+      if (address.toLowerCase().indexOf(MapsLib.locationScope) == -1) address = address + " " + MapsLib.locationScope;
 
-      geocoder.geocode( { 'address': address}, function(results, status) {
+      geocoder.geocode({
+        'address': address
+      }, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           MapsLib.currentPinpoint = results[0].geometry.location;
 
@@ -106,20 +156,18 @@ var MapsLib = {
             map: map,
             icon: MapsLib.addrMarkerImage,
             animation: google.maps.Animation.DROP,
-            title:address
+            title: address
           });
 
           whereClause += " AND ST_INTERSECTS(" + MapsLib.locationColumn + ", CIRCLE(LATLNG" + MapsLib.currentPinpoint.toString() + "," + MapsLib.searchRadius + "))";
 
           MapsLib.drawSearchRadiusCircle(MapsLib.currentPinpoint);
           MapsLib.submitSearch(whereClause, map, MapsLib.currentPinpoint);
-        }
-        else {
+        } else {
           alert("We could not find your address: " + status);
         }
       });
-    }
-    else { //search without geocoding callback
+    } else { //search without geocoding callback
       MapsLib.submitSearch(whereClause, map);
     }
   },
@@ -132,9 +180,9 @@ var MapsLib = {
 
     MapsLib.searchrecords = new google.maps.FusionTablesLayer({
       query: {
-        from:   MapsLib.fusionTableId,
+        from: MapsLib.fusionTableId,
         select: MapsLib.locationColumn,
-        where:  whereClause
+        where: whereClause
       },
       styleId: 2,
       templateId: 2
@@ -144,31 +192,29 @@ var MapsLib = {
   },
 
   clearSearch: function() {
-    if (MapsLib.searchrecords != null)
-      MapsLib.searchrecords.setMap(null);
-    if (MapsLib.addrMarker != null)
-      MapsLib.addrMarker.setMap(null);
-    if (MapsLib.searchRadiusCircle != null)
-      MapsLib.searchRadiusCircle.setMap(null);
+    if (MapsLib.searchrecords != null) MapsLib.searchrecords.setMap(null);
+    if (MapsLib.addrMarker != null) MapsLib.addrMarker.setMap(null);
+    if (MapsLib.searchRadiusCircle != null) MapsLib.searchRadiusCircle.setMap(null);
   },
 
   findMe: function() {
     // Try W3C Geolocation (Preferred)
     var foundLocation;
 
-    if(navigator.geolocation) {
+    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        foundLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+        foundLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         MapsLib.addrFromLatLng(foundLocation);
       }, null);
-    }
-    else {
+    } else {
       alert("Sorry, we could not find your location.");
     }
   },
 
   addrFromLatLng: function(latLngPoint) {
-    geocoder.geocode({'latLng': latLngPoint}, function(results, status) {
+    geocoder.geocode({
+      'latLng': latLngPoint
+    }, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         if (results[1]) {
           $('#search_address').val(results[1].formatted_address);
@@ -182,19 +228,19 @@ var MapsLib = {
   },
 
   drawSearchRadiusCircle: function(point) {
-      var circleOptions = {
-        strokeColor: "#4b58a6",
-        strokeOpacity: 0.3,
-        strokeWeight: 1,
-        fillColor: "#4b58a6",
-        fillOpacity: 0.05,
-        map: map,
-        center: point,
-        clickable: false,
-        zIndex: -1,
-        radius: parseInt(MapsLib.searchRadius)
-      };
-      MapsLib.searchRadiusCircle = new google.maps.Circle(circleOptions);
+    var circleOptions = {
+      strokeColor: "#4b58a6",
+      strokeOpacity: 0.3,
+      strokeWeight: 1,
+      fillColor: "#4b58a6",
+      fillOpacity: 0.05,
+      map: map,
+      center: point,
+      clickable: false,
+      zIndex: -1,
+      radius: parseInt(MapsLib.searchRadius)
+    };
+    MapsLib.searchRadiusCircle = new google.maps.Circle(circleOptions);
   },
 
   query: function(selectColumns, whereClause, callback) {
@@ -204,7 +250,10 @@ var MapsLib = {
     queryStr.push(" WHERE " + whereClause);
 
     var sql = encodeURIComponent(queryStr.join(" "));
-    $.ajax({url: "https://www.googleapis.com/fusiontables/v1/query?sql="+sql+"&callback="+callback+"&key="+MapsLib.googleApiKey, dataType: "jsonp"});
+    $.ajax({
+      url: "https://www.googleapis.com/fusiontables/v1/query?sql=" + sql + "&callback=" + callback + "&key=" + MapsLib.googleApiKey,
+      dataType: "jsonp"
+    });
   },
 
   handleError: function(json) {
@@ -221,22 +270,20 @@ var MapsLib = {
 
   getCount: function(whereClause) {
     var selectColumns = "Count()";
-    MapsLib.query(selectColumns, whereClause,"MapsLib.displaySearchCount");
+    MapsLib.query(selectColumns, whereClause, "MapsLib.displaySearchCount");
   },
 
   displaySearchCount: function(json) {
     MapsLib.handleError(json);
     var numRows = 0;
-    if (json["rows"] != null)
-      numRows = json["rows"][0];
+    if (json["rows"] != null) numRows = json["rows"][0];
 
     var name = MapsLib.recordNamePlural;
-    if (numRows == 1)
-    name = MapsLib.recordName;
-    $( "#result_count" ).fadeOut(function() {
-        $( "#result_count" ).html(MapsLib.addCommas(numRows) + " " + name + " found");
-      });
-    $( "#result_count" ).fadeIn();
+    if (numRows == 1) name = MapsLib.recordName;
+    $("#result_count").fadeOut(function() {
+      $("#result_count").html(MapsLib.addCommas(numRows) + " " + name + " found");
+    });
+    $("#result_count").fadeIn();
   },
 
   addCommas: function(nStr) {
@@ -259,12 +306,12 @@ var MapsLib = {
   //converts a slug or query string in to readable text
   convertToPlainString: function(text) {
     if (text == undefined) return '';
-  	return decodeURIComponent(text);
+    return decodeURIComponent(text);
   }
-  
+
   //-----custom functions-------
   // NOTE: if you add custom functions, make sure to append each one with a comma, except for the last one.
   // This also applies to the convertToPlainString function above
-  
+
   //-----end of custom functions-------
 }
