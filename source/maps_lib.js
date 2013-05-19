@@ -68,8 +68,47 @@ var MapsLib = {
     else $("#search_radius").val(MapsLib.searchRadius);
     $(":checkbox").attr("checked", "checked");
     $("#result_count").hide();
+    $("#text_search").val("");
+
+    //ranges for our slider
+    var minDate = moment("1997"); // Jan 1st 2010
+    var maxDate = moment(); //now
+
+    //starting values
+    var startDate = moment().subtract('years', 16); //past 16 years
+    var endDate = moment(); //now
+
+    MapsLib.initializeDateSlider(minDate, maxDate, startDate, endDate, "days", 7);
 
     //-----custom initializers-------
+    initializeDateSlider: function(minDate, maxDate, startDate, endDate, stepType, step) {
+      var interval = MapsLib.sliderInterval(stepType);
+
+      $('#minDate').html(minDate.format('YYYY'));
+      $('#maxDate').html(maxDate.format('YYYY'));
+
+      $('#startDate').html(startDate.format('L'));
+      $('#endDate').html(endDate.format('L'));
+
+      $('#date-range').slider({
+        range: true,
+        step: step,
+        values: [Math.floor((startDate.valueOf() - minDate.valueOf()) / interval), Math.floor((maxDate.valueOf() - minDate.valueOf()) / interval)],
+        max: Math.floor((maxDate.valueOf() - minDate.valueOf()) / interval),
+        slide: function(event, ui) {
+          $('#startDate').html(minDate.clone().add(stepType, ui.values[0]).format('L'));
+          $('#endDate').html(minDate.clone().add(stepType, ui.values[1]).format('L'));
+        },
+        stop: function(event, ui) {
+          MapsLib.doSearch();
+        }
+      });
+    },
+
+    sliderInterval: function(interval) {
+      if (interval == "years") return 365 * 24 * 3600 * 1000;
+      else return 1;
+    }
 
     //-----end of custom initializers-------
 
@@ -85,6 +124,12 @@ var MapsLib = {
     var whereClause = MapsLib.locationColumn + " not equal to ''";
 
     //-----custom filters-------
+    var text_search = $("#text_search").val().replace("'", "\'");
+    if (text_search != '') whereClause += " AND 'School' contains ignoring case '" + text_search + "'";
+
+    whereClause += " AND 'Date' >= '" + $('#startDate').html() + "'";
+    whereClause += " AND 'Date' <= '" + $('#endDate').html() + "'";
+
     var type_column = "'ActionFlag'";
     var searchType = type_column + " IN (-1,";
     if ($("#action1").is(':checked')) searchType += "1,";
