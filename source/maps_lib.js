@@ -68,6 +68,7 @@ var MapsLib = {
     else $("#search_radius").val(MapsLib.searchRadius);
     $(":checkbox").attr("checked", "checked");
     $("#result_count").hide();
+    $("#text_search").val("");
 
     //-----custom initializers-------
 
@@ -85,6 +86,10 @@ var MapsLib = {
     var whereClause = MapsLib.locationColumn + " not equal to ''";
 
     //-----custom filters-------
+
+    var text_search = $("#text_search").val().replace("'", "\'");
+    if (text_search != '') whereClause += " AND 'Label' contains ignoring case '" + text_search + "'";
+
     var type_column = "'ActionFlag'";
     var searchType = type_column + " IN (-1,";
     if ($("#action1").is(':checked')) searchType += "1,";
