@@ -18,7 +18,7 @@ var MapsLib = {
 
   //the encrypted Table ID of your Fusion Table (found under File => About)
   //NOTE: numeric IDs will be depricated soon
-  fusionTableId: "1fUylcSUnEfjaaOMiOlqWN2XhxUdyQjmONODekC8",
+  fusionTableId: "1vP4neapn78SucXReab_cyuCcyPxANww6_o1lFu8",
 
   //*New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
   //*Important* this key is for demonstration purposes. please register your own.
@@ -27,7 +27,7 @@ var MapsLib = {
   //name of the location column in your Fusion Table.
   //NOTE: if your location column name has spaces in it, surround it with single quotes
   //example: locationColumn:     "'my location'",
-  locationColumn: "Latitude",
+  locationColumn: "Longitude",
 
   map_centroid: new google.maps.LatLng(41.8781136, -87.66677856445312), //center that your map defaults to
   locationScope: "chicago", //geographical area appended to all address searches
@@ -85,11 +85,17 @@ var MapsLib = {
     var whereClause = MapsLib.locationColumn + " not equal to ''";
 
     //-----custom filters-------
-
-    var type_column = "'ActionType'";
-
-    if ($("#Opening").is(':checked')) whereClause += " AND " + type_column + "='Opening'";
-    if ($("#Closure").is(':checked')) whereClause += " AND " + type_column + "='Closure'";
+    var type_column = "'ActionFlag'";
+    var searchType = type_column + " IN (-1,";
+    if ($("#action1").is(':checked')) searchType += "1,";
+    if ($("#action2").is(':checked')) searchType += "2,";
+    if ($("#action3").is(':checked')) searchType += "3,";
+    if ($("#action4").is(':checked')) searchType += "4,";
+    if ($("#action5").is(':checked')) searchType += "5,";
+    if ($("#action6").is(':checked')) searchType += "6,";
+    if ($("#action7").is(':checked')) searchType += "7,";
+    if ($("#action8").is(':checked')) searchType += "8,";
+    whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 
 
     //-------end of custom filters--------
