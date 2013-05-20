@@ -46,7 +46,72 @@ var MapsLib = {
     var myOptions = {
       zoom: MapsLib.defaultZoom,
       center: MapsLib.map_centroid,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: [{
+        "featureType": "landscape.natural.terrain",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {
+        "featureType": "road.local",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {
+        "featureType": "landscape.man_made",
+        "stylers": [{
+          "color": "#eff0ed"
+        }]
+      }, {
+        "featureType": "road.arterial",
+        "stylers": [{
+          "color": "#ffffff"
+        }, {
+          "visibility": "simplified"
+        }]
+      }, {
+        "featureType": "road.highway",
+        "stylers": [{
+          "color": "#ffffff"
+        }, {
+          "visibility": "simplified"
+        }]
+      }, {
+        "featureType": "transit",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {
+        "featureType": "poi",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {}, {
+        "featureType": "road",
+        "elementType": "labels.text",
+        "stylers": [{
+          "color": "#000000"
+        }, {
+          "weight": 0.1
+        }]
+      }, {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {
+        "featureType": "water",
+        "stylers": [{
+          "color": "#b0dad6"
+        }]
+      }, {
+        "featureType": "administrative.locality",
+        "elementType": "labels",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }]
     };
     map = new google.maps.Map($("#map_canvas")[0], myOptions);
 
