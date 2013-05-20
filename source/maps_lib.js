@@ -72,6 +72,22 @@ var MapsLib = {
 
     //-----custom initializers-------
 
+    $("#age-slider").slider({
+      orientation: "horizontal",
+      range: true,
+      min: 1997,
+      max: 2013,
+      values: [1997, 2013],
+      step: 1,
+      slide: function(event, ui) {
+        $("#age-selected-start").html(ui.values[0]);
+        $("#age-selected-end").html(ui.values[1]);
+      },
+      stop: function(event, ui) {
+        MapsLib.doSearch();
+      }
+    });
+
     //-----end of custom initializers-------
 
     //run the default search
@@ -101,6 +117,9 @@ var MapsLib = {
     if ($("#action7").is(':checked')) searchType += "7,";
     if ($("#action8").is(':checked')) searchType += "8,";
     whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+
+    whereClause += " AND 'Year' >= '" + $("#age-selected-start").html() + "'";
+    whereClause += " AND 'Year' <= '" + $("#age-selected-end").html() + "'";
 
 
     //-------end of custom filters--------
