@@ -126,12 +126,12 @@ var MapsLib = {
     $("#result_count").hide();
     $("#text_search").val("");
 
-    /*MapsLib.commAreas = new google.maps.FusionTablesLayer({
+    /* MapsLib.commAreas = new google.maps.FusionTablesLayer({
       query: {
         from: MapsLib.commAreasTableId,
       }
     });
-    MapsLib.commAreas.setMap(map); */
+    MapsLib.commAreas.setMap(map);*/
 
     MapsLib.edi = new google.maps.FusionTablesLayer({
       query: {
@@ -139,7 +139,6 @@ var MapsLib = {
       },
       styles: [{
         polygonOptions: {
-          strokeOpacity: 0.001,
           fillOpacity: 1
         }
       }, {
@@ -231,6 +230,13 @@ var MapsLib = {
 
     whereClause += " AND 'Year' >= '" + $("#age-selected-start").html() + "'";
     whereClause += " AND 'Year' <= '" + $("#age-selected-end").html() + "'";
+
+
+    if ($("#edi").is(':checked')) {
+      MapsLib.edi.setMap(map);
+    } else {
+      MapsLib.edi.setMap(null)
+    }
 
 
     //-------end of custom filters--------
