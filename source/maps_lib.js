@@ -20,6 +20,9 @@ var MapsLib = {
   //NOTE: numeric IDs will be depricated soon
   fusionTableId: "1vP4neapn78SucXReab_cyuCcyPxANww6_o1lFu8",
 
+  commAreasTableId: "1GtSykK6xHkeFrxmWK1VpvOaJltJgpa4o1bX7F14",
+  ediTableId: "1bOniDCHwGJQRItiTiUc_Pz8Y0VGmIbP4bBhYIMM",
+
   //*New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
   //*Important* this key is for demonstration purposes. please register your own.
   googleApiKey: "AIzaSyDtJXRQCXB-WlDve_nLtHbeDjj3q4saCag",
@@ -115,6 +118,55 @@ var MapsLib = {
     };
     map = new google.maps.Map($("#map_canvas")[0], myOptions);
 
+    $("#search_address").val(MapsLib.convertToPlainString($.address.parameter('address')));
+    var loadRadius = MapsLib.convertToPlainString($.address.parameter('radius'));
+    if (loadRadius != "") $("#search_radius").val(loadRadius);
+    else $("#search_radius").val(MapsLib.searchRadius);
+    $(":checkbox").attr("checked", "checked");
+    $("#result_count").hide();
+    $("#text_search").val("");
+
+    /*MapsLib.commAreas = new google.maps.FusionTablesLayer({
+      query: {
+        from: MapsLib.commAreasTableId,
+      }
+    });
+    MapsLib.commAreas.setMap(map); */
+
+    MapsLib.edi = new google.maps.FusionTablesLayer({
+      query: {
+        from: MapsLib.ediTableId,
+      },
+      styles: [{
+        polygonOptions: {
+          strokeOpacity: 0.001,
+          fillOpacity: 1
+        }
+      }, {
+        where: "FourStage = 1",
+        polygonOptions: {
+          fillColor: "#EDF8FB"
+        }
+      }, {
+        where: "FourStage = 2",
+        polygonOptions: {
+          fillColor: "#B2E2E2"
+        }
+      }, {
+        where: "FourStage = 3",
+        polygonOptions: {
+          fillColor: "#66C2A4"
+        }
+      }, {
+        where: "FourStage = 4",
+        polygonOptions: {
+          fillColor: "#238B45"
+        }
+      }]
+    });
+    MapsLib.edi.setMap(map);
+
+
     // maintains map centerpoint for responsive design
     google.maps.event.addDomListener(map, 'idle', function() {
       MapsLib.calculateCenter();
@@ -127,13 +179,7 @@ var MapsLib = {
     MapsLib.searchrecords = null;
 
     //reset filters
-    $("#search_address").val(MapsLib.convertToPlainString($.address.parameter('address')));
-    var loadRadius = MapsLib.convertToPlainString($.address.parameter('radius'));
-    if (loadRadius != "") $("#search_radius").val(loadRadius);
-    else $("#search_radius").val(MapsLib.searchRadius);
-    $(":checkbox").attr("checked", "checked");
-    $("#result_count").hide();
-    $("#text_search").val("");
+
 
     //-----custom initializers-------
 
