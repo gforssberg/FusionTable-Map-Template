@@ -20,6 +20,8 @@ var MapsLib = {
   //NOTE: numeric IDs will be depricated soon
   fusionTableId: "1vP4neapn78SucXReab_cyuCcyPxANww6_o1lFu8",
 
+
+
   //*New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
   //*Important* this key is for demonstration purposes. please register your own.
   googleApiKey: "AIzaSyDtJXRQCXB-WlDve_nLtHbeDjj3q4saCag",
@@ -46,7 +48,73 @@ var MapsLib = {
     var myOptions = {
       zoom: MapsLib.defaultZoom,
       center: MapsLib.map_centroid,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: [{
+        "featureType": "landscape.natural.terrain",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {
+        "featureType": "road.local",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {
+        "featureType": "landscape.man_made",
+        "stylers": [{
+          "color": "#eff0ed"
+        }]
+      }, {
+        "featureType": "road.arterial",
+        "stylers": [{
+          "color": "#ffffff"
+        }, {
+          "visibility": "simplified"
+        }]
+      }, {
+        "featureType": "road.highway",
+        "stylers": [{
+          "color": "#ffffff"
+        }, {
+          "visibility": "simplified"
+        }]
+      }, {
+        "featureType": "transit",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {
+        "featureType": "poi",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {}, {
+        "featureType": "road",
+        "elementType": "labels.text",
+        "stylers": [{
+          "color": "#000000"
+        }, {
+          "weight": 0.1
+        }]
+      }, {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {
+        "featureType": "water",
+        "stylers": [{
+          "color": "#b0dad6"
+        }]
+      }, {
+        "featureType": "administrative.locality",
+        "elementType": "labels",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }]
+
     };
     map = new google.maps.Map($("#map_canvas")[0], myOptions);
 
@@ -69,6 +137,8 @@ var MapsLib = {
     $(":checkbox").attr("checked", "checked");
     $("#result_count").hide();
     $("#text_search").val("");
+
+
 
     //-----custom initializers-------
 
