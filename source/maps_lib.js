@@ -122,7 +122,7 @@ var MapsLib = {
     var loadRadius = MapsLib.convertToPlainString($.address.parameter('radius'));
     if (loadRadius != "") $("#search_radius").val(loadRadius);
     else $("#search_radius").val(MapsLib.searchRadius);
-    $(":checkbox").attr("checked", "checked");
+    $(".checked").attr("checked", "checked");
     $("#result_count").hide();
     $("#text_search").val("");
 
@@ -216,6 +216,7 @@ var MapsLib = {
     var text_search = $("#text_search").val().replace("'", "\'");
     if (text_search != '') whereClause += " AND 'Label' contains ignoring case '" + text_search + "'";
 
+
     var type_column = "'ActionFlag'";
     var searchType = type_column + " IN (-1,";
     if ($("#action1").is(':checked')) searchType += "1,";
@@ -227,6 +228,24 @@ var MapsLib = {
     if ($("#action7").is(':checked')) searchType += "7,";
     if ($("#action8").is(':checked')) searchType += "8,";
     whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+
+    var type_column = "'TypeFlag'";
+    var searchType = type_column + " IN (-1,";
+    if ($("#origop1").is(':checked')) searchType += "1,";
+    if ($("#origop2").is(':checked')) searchType += "2,";
+    if ($("#origop3").is(':checked')) searchType += "3,";
+    whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+
+    var type_column = "'RecTypeFlag'";
+    var searchType = type_column + " IN (-1,";
+    if ($("#recop1").is(':checked')) searchType += "1,";
+    if ($("#recop2").is(':checked')) searchType += "2,";
+    if ($("#recop3").is(':checked')) searchType += "3,";
+    if ($("#recop4").is(':checked')) searchType += "4,";
+    if ($("#recop5").is(':checked')) searchType += "5,";
+    if ($("#recop0").is(':checked')) searchType += "0,";
+    whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+
 
     whereClause += " AND 'Year' >= '" + $("#age-selected-start").html() + "'";
     whereClause += " AND 'Year' <= '" + $("#age-selected-end").html() + "'";
