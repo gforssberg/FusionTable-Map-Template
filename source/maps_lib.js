@@ -217,7 +217,7 @@ var MapsLib = {
     if (text_search != '') whereClause += " AND 'Label' contains ignoring case '" + text_search + "'";
 
 
-    var type_column = "'ActionFlag'";
+    var type_column = "'ActionFlag'"; 
     var searchType = type_column + " IN (-1,";
     if ($("#action1").is(':checked')) searchType += "1,";
     if ($("#action2").is(':checked')) searchType += "2,";
