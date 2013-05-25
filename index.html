@@ -20,7 +20,7 @@
     <div class='navbar'>
       <div class='navbar-inner'>
         <div class='container'>
-          <a class='brand' href='/'>CPS Actions Against Schools in the Charter Era, 1997-2013</a>
+          <a class='brand' href='/'></a>
         </div>
       </div>
     </div>
@@ -28,9 +28,14 @@
       <div class='row-fluid'>
         <div class='span4'>
           <p></p>
+          <div id='wellTitle'>
+            <h3 id='titleMainText'>Scorched Earth</h3>
+            <p id='titleSub'>A Historical Look at the Wake of School Actions and the Corporate Education Reform Era, 1997</p>
+          </div>
+
           <div class='well'>
             <h4>
-              How has the CPS Acted on Schools Near You?<small>(<a id='find_me' href='#'>Find Me</a>)</small>
+              Find CPS Actions on Schools Near You<small>(<a id='find_me' href='#'>Find Me</a>)</small>
             </h4>
             <input class='input-block-level' id='search_address' placeholder='Enter an address or an intersection' type='text' />
             <label>
@@ -115,8 +120,10 @@
     </label>
   </li>
 </ul>
+</div>
+<div class='well'> 
 <h4>By Changes in School Operators</h4>
-<p> Much of the public's focus is placed on the number or net growth rate of Charter campuses (individual school units) or operators (the cap on Charter operators has increased to 30 for coming years, leading the way for institutional expansion) when accounting for the privatization of public education and broad shifts in education reform. Students from closures, consolidations, and phase-outs typically have to be relocated (one exception is phased-out middle schools) into a receiving schools and CPS will often reredistribute students from district operated schools that have been closed, consolidated, or phased-out into existing schools in the charter network. This forms a different mechanism by which the share of students in district operated and charter operater schools, respectively, can be administratively effected.</p>
+<!--<p> Much of the public's focus is placed on the number or net growth rate of Charter campuses (individual school units) or operators (the cap on Charter operators has increased to 30 for coming years, leading the way for institutional expansion) when accounting for the privatization of public education and broad shifts in education reform. Students from closures, consolidations, and phase-outs typically have to be relocated (one exception is phased-out middle schools) into a receiving schools and CPS will often reredistribute students from district operated schools that have been closed, consolidated, or phased-out into existing schools in the charter network. This forms a different mechanism by which the share of students in district operated and charter operater schools, respectively, can be administratively effected.</p> -->
 <h5>Originating/Opening Operator</h5>
 <ul class='inputs-list unstyled'>
   <li>
@@ -206,10 +213,10 @@
       N/A
     </label>
   </li>
+</div>
 
 
-
-
+<div class='well'>
 <h4>
   Sort By Year
   <small>
@@ -221,17 +228,17 @@
 <div id='age-slider'></div>
 <span class='pull-left'>1997</span>
 <span class='pull-right'>2013</span>
-<span class='layerFilter'>
-<h4>Demographics Overlays</h4>
-<ul class='c3r options-v'>          
-            <li><label for='edi'><input name='edi' type='checkbox' id='edi'/>Economic Development Index Overlay</label></li>
-          </ul></span>
-            
-           
+<span class='layerFilter'> 
           </div>
+
           <p class='alert alert-info lead' id='result_count'></p>
         </div>
         <div class='span8'>
+           <div id="mapgroup_121" class="mapgroup">
+    <ul class="map-nav">        
+            <li><label for='edi'><input name='edi' type='checkbox' id='edi'/>Economic Development Index Overlay</label></li>
+          </ul>
+            </div>
           <div id='map_canvas'></div>
           <p class='pull-right'>
             <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a>.
@@ -251,7 +258,7 @@
       //<![CDATA[
         $(window).resize(function () {
           var h = $(window).height(),
-            offsetTop = 90; // Calculate the top offset
+            offsetTop = 0; // Calculate the top offset
         
           $('#map_canvas').css('height', (h - offsetTop));
         }).resize();
