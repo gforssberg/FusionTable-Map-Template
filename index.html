@@ -117,7 +117,7 @@
 </ul>
 <h4>By Changes in School Operators</h4>
 <p> Much of the public's focus is placed on the number or net growth rate of Charter campuses (individual school units) or operators (the cap on Charter operators has increased to 30 for coming years, leading the way for institutional expansion) when accounting for the privatization of public education and broad shifts in education reform. Students from closures, consolidations, and phase-outs typically have to be relocated (one exception is phased-out middle schools) into a receiving schools and CPS will often reredistribute students from district operated schools that have been closed, consolidated, or phased-out into existing schools in the charter network. This forms a different mechanism by which the share of students in district operated and charter operater schools, respectively, can be administratively effected.</p>
-<h5>Originating Operator</h5>
+<h5>Originating/Opening Operator</h5>
 <ul class='inputs-list unstyled'>
   <li>
     <label class='checkbox inline'>
@@ -125,6 +125,20 @@
       <span class='opfilterbox'></span>
       District
     </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' name='types' id='origop4' class='checked' />
+      <span class='opfilterbox'></span>
+      District-Selective Enrollment
+    </label>
+    <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' name='types' id='origop6' class='checked' />
+      <span class='opfilterbox'></span>
+      District-Performance School
+    </label>
+  </li>
   </li>
   <li>
     <label class='checkbox inline'>
@@ -180,6 +194,13 @@
   </li>
   <li>
     <label class='checkbox inline'>
+      <input type='checkbox' name='types' id='recop6' class='checked' />
+      <span class='opfilterbox'></span>
+      N/A
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
       <input type='checkbox' name='types' id='recop0' class='checked' />
       <span class='opfilterbox'></span>
       N/A
@@ -223,7 +244,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="source/bootstrap.js"></script>
     <script type="text/javascript" src="source/jquery.address.min.js"></script>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
     <script type="text/javascript" src="source/jquery.geocomplete.min.js"></script>
     <script type="text/javascript" src="source/maps_lib.js"></script>
     <script type='text/javascript'>

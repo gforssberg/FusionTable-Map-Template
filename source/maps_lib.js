@@ -38,9 +38,10 @@ var MapsLib = {
   recordNamePlural: "Actions",
 
   searchRadius: 805, //in meters ~ 1/2 mile
-  defaultZoom: 11, //zoom level when map is loaded (bigger is more zoomed in)
+  defaultZoom: 10, //zoom level when map is loaded (bigger is more zoomed in)
   addrMarkerImage: 'http://derekeder.com/images/icons/blue-pushpin.png',
   currentPinpoint: null,
+
 
   initialize: function() {
     $("#result_count").html("");
@@ -50,72 +51,69 @@ var MapsLib = {
       zoom: MapsLib.defaultZoom,
       center: MapsLib.map_centroid,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-      styles: [{
-        "featureType": "landscape.natural.terrain",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      }, {
-        "featureType": "road.local",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      }, {
-        "featureType": "landscape.man_made",
-        "stylers": [{
-          "color": "#eff0ed"
-        }]
-      }, {
-        "featureType": "road.arterial",
-        "stylers": [{
-          "color": "#ffffff"
-        }, {
-          "visibility": "simplified"
-        }]
-      }, {
-        "featureType": "road.highway",
-        "stylers": [{
-          "color": "#ffffff"
-        }, {
-          "visibility": "simplified"
-        }]
-      }, {
-        "featureType": "transit",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      }, {
-        "featureType": "poi",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      }, {}, {
-        "featureType": "road",
-        "elementType": "labels.text",
-        "stylers": [{
-          "color": "#000000"
-        }, {
-          "weight": 0.1
-        }]
-      }, {
-        "featureType": "road",
-        "elementType": "labels",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      }, {
-        "featureType": "water",
-        "stylers": [{
-          "color": "#b0dad6"
-        }]
-      }, {
-        "featureType": "administrative.locality",
-        "elementType": "labels",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      }]
-    };
+      styles:[
+  {
+    "featureType": "landscape.natural",
+    "stylers": [
+      { "color": "#ffffff" }
+    ]
+  },{
+    "featureType": "landscape.man_made",
+    "stylers": [
+      { "color": "#ffffff" }
+    ]
+  },{
+    "featureType": "poi",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "transit",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "road.arterial",
+    "stylers": [
+      { "visibility": "simplified" },
+      { "weight": 0.4 },
+      { "color": "#dbdad8" }
+    ]
+  },{
+    "featureType": "road.arterial",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" },
+      { "color": "#c5df80" }
+    ]
+  },{
+    "featureType": "road.highway",
+    "stylers": [
+      { "color": "#000000" },
+      { "visibility": "simplified" }
+    ]
+  },{
+    "featureType": "road.highway",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "water",
+    "stylers": [
+      { "color": "#000000" }
+    ]
+  },{
+    "featureType": "administrative.locality",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  }]
+};
+
+
+
+
     map = new google.maps.Map($("#map_canvas")[0], myOptions);
 
     $("#search_address").val(MapsLib.convertToPlainString($.address.parameter('address')));
@@ -126,15 +124,17 @@ var MapsLib = {
     $("#result_count").hide();
     $("#text_search").val("");
 
-    /* MapsLib.commAreas = new google.maps.FusionTablesLayer({
+     MapsLib.commAreas = new google.maps.FusionTablesLayer({
       query: {
         from: MapsLib.commAreasTableId,
-      }
+      }, 
+      styleId:2,
+      templateId:2
     });
-    MapsLib.commAreas.setMap(map);*/
+    MapsLib.commAreas.setMap(map);
 
     MapsLib.edi = new google.maps.FusionTablesLayer({
-      query: {
+     /* query: {
         from: MapsLib.ediTableId,
       },
       styles: [{
@@ -161,7 +161,14 @@ var MapsLib = {
         polygonOptions: {
           fillColor: "#238B45"
         }
-      }]
+      }]*/
+      query: {
+        from: MapsLib.ediTableId,
+      },
+      styleId: 2,
+      templateId: 2
+
+
     });
     MapsLib.edi.setMap(map);
 
@@ -234,6 +241,9 @@ var MapsLib = {
     if ($("#origop1").is(':checked')) searchType += "1,";
     if ($("#origop2").is(':checked')) searchType += "2,";
     if ($("#origop3").is(':checked')) searchType += "3,";
+    if ($("#origop4").is(':checked')) searchType += "4,";
+    if ($("#origop6").is(':checked')) searchType += "6,";
+    
     whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 
     var type_column = "'RecTypeFlag'";
@@ -243,6 +253,7 @@ var MapsLib = {
     if ($("#recop3").is(':checked')) searchType += "3,";
     if ($("#recop4").is(':checked')) searchType += "4,";
     if ($("#recop5").is(':checked')) searchType += "5,";
+    if ($("#recop6").is(':checked')) searchType += "6,";
     if ($("#recop0").is(':checked')) searchType += "0,";
     whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 
@@ -307,7 +318,7 @@ var MapsLib = {
         select: MapsLib.locationColumn,
         where: whereClause
       },
-      styleId: 1,
+      styleId: 2,
       templateId: 2
     });
     MapsLib.searchrecords.setMap(map);
