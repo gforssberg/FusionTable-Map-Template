@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-    <title>Searchable Map Template Demo</title>
+    <title>Scorched Earth</title>
     <meta charset='utf-8' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta content='' name='description' />
@@ -234,18 +234,21 @@
           <p class='alert alert-info lead' id='result_count'></p>
         </div>
         <div class='span8'>
-           <div id="mapgroup_121" class="mapgroup">
-    <ul class="map-nav">        
-            <li><label for='edi'><input name='edi' type='checkbox' id='edi'/>Economic Development Index Overlay</label></li>
+         
+            <div class='layerGroup'>
+    <ul class="mapLayers">        
+             <li><input class='btn btn-primary layer' id='edi' name='edi' type='button' value='Economic Development Index Layer'></li>
           </ul>
-            </div>
-          <div id='map_canvas'></div>
+        </div>
+           
+          <div id='map_canvas' style="clear:both"></div>
           <p class='pull-right'>
             <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a>.
-        </p>
+          </p>
         </div>
       </div>
     </div>
+    
 
     <script type="text/javascript" src="source/jquery.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
@@ -258,10 +261,13 @@
       //<![CDATA[
         $(window).resize(function () {
           var h = $(window).height(),
-            offsetTop = 0; // Calculate the top offset
+            offsetTop = 120; // Calculate the top offset
+           
         
           $('#map_canvas').css('height', (h - offsetTop));
         }).resize();
+
+
         
         $(function() {
           MapsLib.initialize();
@@ -300,6 +306,9 @@
                   $('#search').click();
                   return false;
               }
+          });
+         $('#edi').click(function(){
+           MapsLib.edi.setMap(map);
           });
         });
       //]]>

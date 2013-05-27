@@ -22,6 +22,7 @@ var MapsLib = {
 
   commAreasTableId: "1GtSykK6xHkeFrxmWK1VpvOaJltJgpa4o1bX7F14",
   ediTableId: "1bOniDCHwGJQRItiTiUc_Pz8Y0VGmIbP4bBhYIMM",
+  medianIncomeId: "14kEdO1R9-j0VELDdIDoX3rhhFyiv9WdgDYj79zg",
 
   //*New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
   //*Important* this key is for demonstration purposes. please register your own.
@@ -49,72 +50,39 @@ var MapsLib = {
     geocoder = new google.maps.Geocoder();
     var myOptions = {
       zoom: MapsLib.defaultZoom,
+      minZoom: 11,
+      streetViewControl: false,
+      zoomControlOptions: {
+                    style: google.maps.ZoomControlStyle.SMALL,
+                    position: google.maps.ControlPosition.TOP_RIGHT
+                },
       center: MapsLib.map_centroid,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      styles:[
-  {
-    "featureType": "landscape.natural",
-    "stylers": [
-      { "color": "#ffffff" }
-    ]
-  },{
-    "featureType": "landscape.man_made",
-    "stylers": [
-      { "color": "#ffffff" }
-    ]
-  },{
-    "featureType": "poi",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  },{
-    "featureType": "transit",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  },{
-    "featureType": "road.arterial",
-    "stylers": [
-      { "visibility": "simplified" },
-      { "weight": 0.4 },
-      { "color": "#dbdad8" }
-    ]
-  },{
-    "featureType": "road.arterial",
-    "elementType": "labels",
-    "stylers": [
-      { "visibility": "off" },
-      { "color": "#c5df80" }
-    ]
-  },{
-    "featureType": "road.highway",
-    "stylers": [
-      { "color": "#000000" },
-      { "visibility": "simplified" }
-    ]
-  },{
-    "featureType": "road.highway",
-    "elementType": "labels",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  },{
-    "featureType": "water",
-    "stylers": [
-      { "color": "#000000" }
-    ]
-  },{
-    "featureType": "administrative.locality",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  }]
-};
-
-
-
-
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
     map = new google.maps.Map($("#map_canvas")[0], myOptions);
+
+
+    MapsLib.commAreas = new google.maps.FusionTablesLayer({
+      query: {
+        from: MapsLib.commAreasTableId,
+        select: "col12"
+      }, 
+    
+    });
+    MapsLib.commAreas.setMap(map);
+
+    MapsLib.edi = new google.maps.FusionTablesLayer({
+      query: {
+        from: MapsLib.ediTableId,
+        select: "col54"
+     },
+    }); 
+    MapsLib.edi.setMap(map);
+    
+
+//MapsLib.edi.setMap(map); 
+
+
 
     $("#search_address").val(MapsLib.convertToPlainString($.address.parameter('address')));
     var loadRadius = MapsLib.convertToPlainString($.address.parameter('radius'));
@@ -124,53 +92,6 @@ var MapsLib = {
     $("#result_count").hide();
     $("#text_search").val("");
 
-     MapsLib.commAreas = new google.maps.FusionTablesLayer({
-      query: {
-        from: MapsLib.commAreasTableId,
-      }, 
-      styleId:2,
-      templateId:2
-    });
-    MapsLib.commAreas.setMap(map);
-
-    MapsLib.edi = new google.maps.FusionTablesLayer({
-     /* query: {
-        from: MapsLib.ediTableId,
-      },
-      styles: [{
-        polygonOptions: {
-          fillOpacity: 1
-        }
-      }, {
-        where: "FourStage = 1",
-        polygonOptions: {
-          fillColor: "#EDF8FB"
-        }
-      }, {
-        where: "FourStage = 2",
-        polygonOptions: {
-          fillColor: "#B2E2E2"
-        }
-      }, {
-        where: "FourStage = 3",
-        polygonOptions: {
-          fillColor: "#66C2A4"
-        }
-      }, {
-        where: "FourStage = 4",
-        polygonOptions: {
-          fillColor: "#238B45"
-        }
-      }]*/
-      query: {
-        from: MapsLib.ediTableId,
-      },
-      styleId: 2,
-      templateId: 2
-
-
-    });
-    MapsLib.edi.setMap(map);
 
 
     // maintains map centerpoint for responsive design
@@ -262,11 +183,6 @@ var MapsLib = {
     whereClause += " AND 'Year' <= '" + $("#age-selected-end").html() + "'";
 
 
-    if ($("#edi").is(':checked')) {
-      MapsLib.edi.setMap(map);
-    } else {
-      MapsLib.edi.setMap(null)
-    }
 
 
     //-------end of custom filters--------
@@ -325,11 +241,18 @@ var MapsLib = {
     MapsLib.getCount(whereClause);
   },
 
+
+
+
+
+
   clearSearch: function() {
     if (MapsLib.searchrecords != null) MapsLib.searchrecords.setMap(null);
     if (MapsLib.addrMarker != null) MapsLib.addrMarker.setMap(null);
     if (MapsLib.searchRadiusCircle != null) MapsLib.searchRadiusCircle.setMap(null);
   },
+
+
 
   findMe: function() {
     // Try W3C Geolocation (Preferred)
