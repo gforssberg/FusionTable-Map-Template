@@ -77,7 +77,7 @@ var MapsLib = {
         select: "col54"
      },
     }); 
-    
+    MapsLib.edi.setMap(map);
     
 
 //MapsLib.edi.setMap(map); 
@@ -91,7 +91,7 @@ var MapsLib = {
     $(".checked").attr("checked", "checked");
     $("#result_count").hide();
     $("#text_search").val("");
-    $('.nav-tabs').button();
+
 
 
     // maintains map centerpoint for responsive design

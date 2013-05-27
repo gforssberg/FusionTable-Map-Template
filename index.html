@@ -236,12 +236,9 @@
         <div class='span8'>
          
             <div class='layerGroup'>
-              <div class="btn-group" data-toggle="buttons-radio">
     <ul class="mapLayers">        
-             <li><button type="button" class='btn btn-primary layer' id='edi' name='edi'>Economic Development Index Layer'></button></li>
-             <li><button type="button" class='btn btn-primary layer' id='edi' name='edi'>Economic Development Index Layer'></button></li>
+             <li><input class='btn btn-primary layer' id='edi' name='edi' type='button' value='Economic Development Index Layer'></li>
           </ul>
-        </div>
         </div>
            
           <div id='map_canvas' style="clear:both"></div>
@@ -310,9 +307,9 @@
                   return false;
               }
           });
-         //$('#edi').click(function(){
-         //  MapsLib.edi.setMap(map);
-         // });
+         $('#edi').click(function(){
+           MapsLib.edi.setMap(map);
+          });
         });
       //]]>
     </script>
