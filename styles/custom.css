@@ -25,3 +25,11 @@ a { color: #4B58A6; }
 .filter-red { background-color: #FB6353; }
 
 canvas {-ms-touch-action: double-tap-zoom;}
+/*Filters*/
+.layerGroup {margin:0px;}
+.mapLayers {float:right;margin:0px;list-style-type: none}
+.btn-primary.layer {font-family:'OpenSansRegular','Helvetica Neue',Helvetica,Verdana,Arial,sans-serif;-webkit-transition:none;-khtml-transition:none;-moz-transition:none;-o-transition:none;transition:none;background-color:white;border:1px solid #CCC;border-radius:0px;border-bottom:none;background-image:none;display:block;color:#96979C;padding:0 15px;height:34px;line-height:35px;margin-left:1px;position:relative;font-size:11px;text-transform:uppercase;}
+#edi {float:left} #edi.active {background-color: orange;color:white;text-shadow:1.5px 0px 1.5px rgba(0, 0, 0, .5)} #edi.disabled{background-color:white}
+#default {float:right}
+
+.well.dry {background:none}

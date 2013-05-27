@@ -790,9 +790,9 @@ a.thumbnail:hover{border-color:#0099dd;-webkit-box-shadow:0 1px 4px rgba(0, 105,
 .media .pull-left{margin-right:10px;}
 .media .pull-right{margin-left:10px;}
 .media-list{margin-left:0;list-style:none;}
-.label,.badge{display:inline-block;padding:2px 4px;font-size:12.69px;font-weight:bold;line-height:14px;color:#ffffff;vertical-align:baseline;white-space:nowrap;text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);background-color:#bbbbbb;}
+.label,.badge{display:block;padding:2px 4px;text-align:center;font-size:17px;line-height:18px;color:black;vertical-align:middle;white-space:nowrap;text-align:center;text-shadow:0px 2px 2px rgba(2, 2, 2, 5.5);}
 .label{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
-.badge{padding-left:9px;padding-right:9px;-webkit-border-radius:9px;-moz-border-radius:9px;border-radius:9px;}
+.badge{height:25px;width:25px;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;line-height:20px;vertical-align:middle;border:1.5px solid black}
 .label:empty,.badge:empty{display:none;}
 a.label:hover,a.badge:hover{color:#ffffff;text-decoration:none;cursor:pointer;}
 .label-important,.badge-important{background-color:#ffffff;}
@@ -898,8 +898,3 @@ div.subnav .nav>li.dropdown.open>.dropdown-toggle{border-left:1px solid whiteSmo
 .show{display:block;}
 .invisible{visibility:hidden;}
 .affix{position:fixed;}
-.layerGroup {margin:0px;}
-.mapLayers {float:right;margin:0px;list-style-type: none}
-.btn-primary.layer {font-family:'OpenSansRegular','Helvetica Neue',Helvetica,Verdana,Arial,sans-serif;-webkit-transition:none;-khtml-transition:none;-moz-transition:none;-o-transition:none;transition:none;background-color:white;border:1px solid #CCC;border-radius:0px;border-bottom:none;background-image:none;display:block;color:#96979C;padding:0 15px;height:34px;line-height:35px;margin-left:1px;position:relative;font-size:11px;text-transform:uppercase;}
-#edi {float:left} #edi.active {background-color: orange;color:white;text-shadow:1.5px 0px 1.5px rgba(0, 0, 0, .5)} #edi.disabled{background-color:white}
-#default {float:right} 
