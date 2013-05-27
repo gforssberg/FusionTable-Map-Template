@@ -8,8 +8,8 @@ a:hover,a:active{outline:0;}
 sub,sup{position:relative;font-size:75%;line-height:0;vertical-align:baseline;}
 sup{top:-0.5em;}
 sub{bottom:-0.25em;}
-img{max-width:100%;width:auto\9;height:auto;vertical-align:middle;border:0;-ms-interpolation-mode:bicubic;}
-#map_canvas img,.google-maps img{max-width:none;clear:both;}
+img{max-width:100%;width:auto\9;height:auto;vertical-align:middle;border:none;-ms-interpolation-mode:bicubic;-moz-border-radius:0px;-webkit-border-radius: 0px;-webkit-box-shadow:none; -moz-box-shadow:none}
+#map_canvas img,.google-maps img{max-width:none;clear:both;border:none;-moz-border-radius:0px;-webkit-border-radius: 0px;-webkit-box-shadow:none; -moz-box-shadow:none}
 button,input,select,textarea{margin:0;font-size:100%;vertical-align:middle;}
 button,input{*overflow:visible;line-height:normal;}
 button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0;}
@@ -901,3 +901,5 @@ div.subnav .nav>li.dropdown.open>.dropdown-toggle{border-left:1px solid whiteSmo
 .layerGroup {margin:0px;}
 .mapLayers {float:right;margin:0px;list-style-type: none}
 .btn-primary.layer {font-family:'OpenSansRegular','Helvetica Neue',Helvetica,Verdana,Arial,sans-serif;-webkit-transition:none;-khtml-transition:none;-moz-transition:none;-o-transition:none;transition:none;background-color:white;border:1px solid #CCC;border-radius:0px;border-bottom:none;background-image:none;display:block;color:#96979C;padding:0 15px;height:34px;line-height:35px;margin-left:1px;position:relative;font-size:11px;text-transform:uppercase;}
+#edi {float:left} #edi.active {background-color: orange;color:white;text-shadow:1.5px 0px 1.5px rgba(0, 0, 0, .5)} #edi.disabled{background-color:white}
+#default {float:right} 

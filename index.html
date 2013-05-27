@@ -37,7 +37,7 @@
             <h4>
               Find CPS Actions on Schools Near You<small>(<a id='find_me' href='#'>Find Me</a>)</small>
             </h4>
-            <input class='input-block-level' id='search_address' placeholder='Enter an address or an intersection' type='text' />
+            <input class='input-block-level' id='search_address' placeholder='Enter an address or an intersection' type='text'  />
             <label>
               within
               <select class='input-small' id='search_radius'>
@@ -50,7 +50,7 @@
             <h4>
             Find a School or Campus
             </h4>
-            <input class='input-block-level' id='text_search' placeholder="Enter a School" type='text' />
+            <input class='input-block-level' id='text_search' placeholder="Find a School or Campus" type='text' data-provide="typeahead" />
             <input class='btn btn-primary' id='search' type='button' value='Search' />
             <button class='btn' id='reset'>Reset</button>
           </div>
@@ -235,10 +235,12 @@
         </div>
         <div class='span8'>
          
-            <div class='layerGroup'>
-    <ul class="mapLayers">        
-             <li><input class='btn btn-primary layer' id='edi' name='edi' type='button' value='Economic Development Index Layer'></li>
-          </ul>
+    <div class='layerGroup'>
+    <div class="btn-group mapLayers" data-toggle="buttons-radio"> 
+    <input class='btn btn-primary layer' id='edi' name='edi' type='button' value='Economic Development Index Layer'> 
+    <input class='btn btn-primary layer' id='default' name='edi' type='button' value='Default'>      
+             
+          
         </div>
            
           <div id='map_canvas' style="clear:both"></div>
@@ -262,13 +264,9 @@
         $(window).resize(function () {
           var h = $(window).height(),
             offsetTop = 120; // Calculate the top offset
-           
-        
           $('#map_canvas').css('height', (h - offsetTop));
         }).resize();
 
-
-        
         $(function() {
           MapsLib.initialize();
           $("#search_address").geocomplete();
@@ -307,8 +305,12 @@
                   return false;
               }
           });
-         $('#edi').click(function(){
-           MapsLib.edi.setMap(map);
+          $('#edi').click(function(){
+            MapsLib.edi.setMap(map);
+            MapsLib.searchrecords.setMap(map);
+          });
+          $('#default').click(function(){
+            MapsLib.edi.setMap(null);
           });
         });
       //]]>

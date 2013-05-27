@@ -62,12 +62,14 @@ var MapsLib = {
     map = new google.maps.Map($("#map_canvas")[0], myOptions);
 
 
-    MapsLib.commAreas = new google.maps.FusionTablesLayer({
+   MapsLib.commAreas = new google.maps.FusionTablesLayer({
       query: {
         from: MapsLib.commAreasTableId,
         select: "col12"
       }, 
-    
+      styleId: 2,
+      templateId: 2,
+      suppressInfoWindows: true
     });
     MapsLib.commAreas.setMap(map);
 
@@ -76,11 +78,14 @@ var MapsLib = {
         from: MapsLib.ediTableId,
         select: "col54"
      },
+     styleId: 3,
+      templateId: 4,
+      zOrder:1,
+     suppressInfoWindows: true
     }); 
-    MapsLib.edi.setMap(map);
-    
+    MapsLib.edi.setMap(map); 
+     MapsLib.edi.setMap(null); 
 
-//MapsLib.edi.setMap(map); 
 
 
 
@@ -89,9 +94,11 @@ var MapsLib = {
     if (loadRadius != "") $("#search_radius").val(loadRadius);
     else $("#search_radius").val(MapsLib.searchRadius);
     $(".checked").attr("checked", "checked");
+    $('.nav-tabs').button()
     $("#result_count").hide();
     $("#text_search").val("");
 
+    
 
 
     // maintains map centerpoint for responsive design
@@ -184,7 +191,6 @@ var MapsLib = {
 
 
 
-
     //-------end of custom filters--------
 
     if (address != "") {
@@ -234,8 +240,8 @@ var MapsLib = {
         select: MapsLib.locationColumn,
         where: whereClause
       },
-      styleId: 2,
-      templateId: 2
+      styleId: 3,
+      templateId: 4
     });
     MapsLib.searchrecords.setMap(map);
     MapsLib.getCount(whereClause);
@@ -354,6 +360,8 @@ var MapsLib = {
     }
     return x1 + x2;
   },
+
+ 
 
   // maintains map centerpoint for responsive design
   calculateCenter: function() {
