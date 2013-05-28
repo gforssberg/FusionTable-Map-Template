@@ -32,4 +32,12 @@ canvas {-ms-touch-action: double-tap-zoom;}
 #edi {float:left} #edi.active {background-color: orange;color:white;text-shadow:1.5px 0px 1.5px rgba(0, 0, 0, .5)} #edi.disabled{background-color:white}
 #default {float:right}
 
-.well.dry {background:none}
+.well.dry {background:none;padding-bottom:0px;padding-top:0px;border:none}
+.left {word-wrap: break-word;width: 40%;float: left; }
+.right {word-wrap: break-word;width: 40%;float: right;padding:0px;}
+.well.dry.bottom {clear:both;}
+.badge.number {float:left;}
+.hoverExpand {line-height:30px;padding-left:40px;}
+.hoverExpand2 {line-height:30px;padding-left:40px;}
+#find_me {margin-bottom:30px;}
+

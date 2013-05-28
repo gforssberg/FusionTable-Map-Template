@@ -189,6 +189,7 @@ var MapsLib = {
     whereClause += " AND 'Year' >= '" + $("#age-selected-start").html() + "'";
     whereClause += " AND 'Year' <= '" + $("#age-selected-end").html() + "'";
 
+    
 
 
     //-------end of custom filters--------

@@ -24,23 +24,27 @@
         </div>
       </div>
     </div>
+
+
     <div class='container-fluid'>
       <div class='row-fluid'>
         <div class='span4'>
           <p></p>
-          <div id='wellTitle'>
-            <h3 id='titleMainText'>Scorched Earth</h3>
+          <div id='well Title'>
+            <h2 id='titleMainText'>Scorched Earth</h2>
             <p id='titleSub'>A Historical Look at the Wake of School Actions in the Era of Corporate Education Reform, 1997-2013</p>
           </div>
-
+<div>
+            <span class="badge number">1</span>
+            <h3 class="hoverExpand">
+              Find
+            </h3>
+          </div>
           <div class='well dry'>
-            <span>
-            <span class="badge">1</span>
-            <h4>
-              Find CPS Actions on Schools Near You<small>(<a id='find_me' href='#'>Find Me</a>)</small>
-            </h4>
-          </span>
-            <input class='input-block-level' id='search_address' placeholder='Enter an address or an intersection' type='text'  />
+            
+
+         <div class='expandInput'>
+            <input class='input-block-level' id='search_address' placeholder='Enter an address or an intersection' type='text'  />(<a id='find_me' href='#'>Find Me</a>)
             <label>
               within
               <select class='input-small' id='search_radius'>
@@ -50,21 +54,23 @@
                 <option value='3220'>2 miles</option>
               </select>
             </label>
-            <h4>
-            Find a School or Campus
+            <h4> 
             </h4>
             <input class='input-block-level' id='text_search' placeholder="Find a School or Campus" type='text' data-provide="typeahead" />
             <input class='btn btn-primary' id='search' type='button' value='Search' />
             <button class='btn' id='reset'>Reset</button>
+         </div>
           </div>
-          <div class='well dry'>
+          
             <!-- Once you decide what filter you want, place the HTML code here. The section in the maps_lib.js is also marked. Once you're done, feel free to delete this explanatory section.-->
 
-            
-            <h4>
-  Sort By Action Type
-</h4>
-
+<span class="badge number">2</span>
+<h3 class="hoverExpand2">
+  Filter
+</h3>
+<div class='well dry'>
+           <h4> By Action Type</h4>
+        <div class='expandInput2'>
 <ul class='inputs-list unstyled'>
   <li>
     <label class='checkbox inline'>
@@ -124,9 +130,11 @@
   </li>
 </ul>
 </div>
+</div>
 <div class='well dry'> 
-<h4>By Changes in School Operators</h4>
+<h4>By School Operator</h4>
 <!--<p> Much of the public's focus is placed on the number or net growth rate of Charter campuses (individual school units) or operators (the cap on Charter operators has increased to 30 for coming years, leading the way for institutional expansion) when accounting for the privatization of public education and broad shifts in education reform. Students from closures, consolidations, and phase-outs typically have to be relocated (one exception is phased-out middle schools) into a receiving schools and CPS will often reredistribute students from district operated schools that have been closed, consolidated, or phased-out into existing schools in the charter network. This forms a different mechanism by which the share of students in district operated and charter operater schools, respectively, can be administratively effected.</p> -->
+<div class='left'>
 <h5>Originating/Opening Operator</h5>
 <ul class='inputs-list unstyled'>
   <li>
@@ -165,6 +173,8 @@
     </label>
   </li>
 </ul>
+</div>
+<div class='right'>
 <h5>Receiving Operator or Property Outcome</h5>
 <ul class='inputs-list unstyled'>
   <li>
@@ -195,7 +205,9 @@
       Demolished
     </label>
   </li>
+
   <li>
+
     <label class='checkbox inline'>
       <input type='checkbox' name='types' id='recop5' class='checked' />
       <span class='opfilterbox'></span>
@@ -216,12 +228,15 @@
       N/A
     </label>
   </li>
+</ul>
+</div>
+
 </div>
 
 
-<div class='well'>
+<div class='well dry bottom'>
 <h4>
-  Sort By Year
+  By Year
   <small>
     <span id='age-selected-start'>1997</span>
     -
@@ -256,6 +271,7 @@
     
 
     <script type="text/javascript" src="source/jquery.js"></script>
+    <script type="text/javascript" src="source/jquery.rotate.1-1.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="source/bootstrap.js"></script>
     <script type="text/javascript" src="source/jquery.address.min.js"></script>
@@ -315,6 +331,20 @@
           $('#default').click(function(){
             MapsLib.edi.setMap(null);
           });
+     
+  $('.expandInput').hide();  
+
+   $(document).ready(function() {
+   $('.hoverExpand').click(function() {
+       $('.expandInput').show("slow");
+        $(".expandInput").css({"margin-top": "20px"});
+   });
+   $('.expandInput').mouseleave(function() {
+       $('.expandInput').hide("slow")
+       }); 
+   });
+
+          
         });
       //]]>
     </script>
