@@ -1,352 +1,264 @@
 <!DOCTYPE html>
 <html lang='en'>
-  <head>
-    <title>Scorched Earth</title>
-    <meta charset='utf-8' />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta content='' name='description' />
-    <meta content='' name='author' />
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles/bootstrap.spacelab.min.css"/>
-    <link rel="stylesheet" href="styles/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="styles/custom.css"/>
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"/>
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
+    <head>
+        <title>
+            Scorched Earth
+        </title>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta content='' name='description'>
+        <meta content='' name='author'><!-- Styles -->
+        <link rel="stylesheet" href="styles/bootstrap.spacelab.min.css" type="text/css">
+        <link rel="stylesheet" href="styles/bootstrap-responsive.min.css" type="text/css">
+        <link rel="stylesheet" href="styles/custom.css" type="text/css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" type="text/css"><!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
       <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <div class='navbar'>
-      <div class='navbar-inner'>
-        <div class='container'>
-          <a class='brand' href='/'></a>
+    </head>
+    <body>
+        <div class='navbar'>
+            <div class='navbar-inner'>
+                <div class='container'>
+                    <a class='brand' href='/'></a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-
-
-    <div class='container-fluid'>
-      <div class='row-fluid'>
-        <div class='span4'>
-          <p></p>
-          <div id='well Title'>
-            <h2 id='titleMainText'>Scorched Earth</h2>
-            <p id='titleSub'>A Historical Look at the Wake of School Actions in the Era of Corporate Education Reform, 1997-2013</p>
-          </div>
-<div>
-            <span class="badge number">1</span>
-            <h3 class="hoverExpand">
-              Find
-            </h3>
-          </div>
-          <div class='well dry'>
-            
-
-         <div class='expandInput'>
-            <input class='input-block-level' id='search_address' placeholder='Enter an address or an intersection' type='text'  />(<a id='find_me' href='#'>Find Me</a>)
-            <label>
-              within
-              <select class='input-small' id='search_radius'>
-                <option value='400'>2 blocks</option>
-                <option value='805'>1/2 mile</option>
-                <option value='1610'>1 mile</option>
-                <option value='3220'>2 miles</option>
-              </select>
-            </label>
-            <h4> 
-            </h4>
-            <input class='input-block-level' id='text_search' placeholder="Find a School or Campus" type='text' data-provide="typeahead" />
-            <input class='btn btn-primary' id='search' type='button' value='Search' />
-            <button class='btn' id='reset'>Reset</button>
-         </div>
-          </div>
-          
-            <!-- Once you decide what filter you want, place the HTML code here. The section in the maps_lib.js is also marked. Once you're done, feel free to delete this explanatory section.-->
-
-<span class="badge number">2</span>
-<h3 class="hoverExpand2">
-  Filter
-</h3>
-<div class='well dry'>
-           <h4> By Action Type</h4>
-        <div class='expandInput2'>
-<ul class='inputs-list unstyled'>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='action1' class='checked'/>
-      <span class='actionfilterbox'></span>
-      Closure
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='action2' class='checked' />
-      <span class='actionfilterbox'></span>
-      Closure and Consolidation
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='action3' class='checked' />
-      <span class='actionfilterbox'></span>
-      Consolidation
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='action4' class='checked'/>
-      <span class='actionfilterbox'></span>
-      Consolidation and Phase Out
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='action5' class='checked' />
-      <span class='actionfilterbox'></span>
-      Consolidation and Turnaround
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='action6' class='checked' />
-      <span class='actionfilterbox'></span>
-      Turnaround
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='action7' class='checked' />
-      <span class='actionfilterbox'></span>
-      Phase Out
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='action8' class='checked' />
-      <span class='actionfilterbox'></span>
-      Opening
-    </label>
-  </li>
-</ul>
-</div>
-</div>
-<div class='well dry'> 
-<h4>By School Operator</h4>
-<!--<p> Much of the public's focus is placed on the number or net growth rate of Charter campuses (individual school units) or operators (the cap on Charter operators has increased to 30 for coming years, leading the way for institutional expansion) when accounting for the privatization of public education and broad shifts in education reform. Students from closures, consolidations, and phase-outs typically have to be relocated (one exception is phased-out middle schools) into a receiving schools and CPS will often reredistribute students from district operated schools that have been closed, consolidated, or phased-out into existing schools in the charter network. This forms a different mechanism by which the share of students in district operated and charter operater schools, respectively, can be administratively effected.</p> -->
-<div class='left'>
-<h5>Originating/Opening Operator</h5>
-<ul class='inputs-list unstyled'>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='origop1' class='checked'/>
-      <span class='opfilterbox'></span>
-      District
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='origop4' class='checked' />
-      <span class='opfilterbox'></span>
-      District-Selective Enrollment
-    </label>
-    <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='origop6' class='checked' />
-      <span class='opfilterbox'></span>
-      District-Performance School
-    </label>
-  </li>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='origop2' class='checked' />
-      <span class='opfilterbox'></span>
-      Charter
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='origop3' class='checked' />
-      <span class='opfilterbox'></span>
-      Contract
-    </label>
-  </li>
-</ul>
-</div>
-<div class='right'>
-<h5>Receiving Operator or Property Outcome</h5>
-<ul class='inputs-list unstyled'>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='recop1' class='checked'/>
-      <span class='opfilterbox'></span>
-      District
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='recop2' class='checked' />
-      <span class='opfilterbox'></span>
-      Charter
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='recop3' class='checked' />
-      <span class='opfilterbox'></span>
-      Contract
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='recop4' class='checked' />
-      <span class='opfilterbox'></span>
-      Demolished
-    </label>
-  </li>
-
-  <li>
-
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='recop5' class='checked' />
-      <span class='opfilterbox'></span>
-      Other (Vacant, Private, etc.)
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='recop6' class='checked' />
-      <span class='opfilterbox'></span>
-      N/A
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' name='types' id='recop0' class='checked' />
-      <span class='opfilterbox'></span>
-      N/A
-    </label>
-  </li>
-</ul>
-</div>
-
-</div>
-
-
-<div class='well dry bottom'>
-<h4>
-  By Year
-  <small>
-    <span id='age-selected-start'>1997</span>
-    -
-    <span id='age-selected-end'>2013</span>
-  </small>
-</h4>
-<div id='age-slider'></div>
-<span class='pull-left'>1997</span>
-<span class='pull-right'>2013</span>
-<span class='layerFilter'> 
-          </div>
-
-          <p class='alert alert-info lead' id='result_count'></p>
-        </div>
-        <div class='span8'>
-         
-    <div class='layerGroup'>
-    <div class="btn-group mapLayers" data-toggle="buttons-radio"> 
-    <input class='btn btn-primary layer' id='edi' name='edi' type='button' value='Economic Development Index Layer'> 
-    <input class='btn btn-primary layer' id='default' name='edi' type='button' value='Default'>      
-             
-          
-        </div>
-           
-          <div id='map_canvas' style="clear:both"></div>
-          <p class='pull-right'>
-            <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-    
-
-    <script type="text/javascript" src="source/jquery.js"></script>
-    <script type="text/javascript" src="source/jquery.rotate.1-1.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="source/bootstrap.js"></script>
-    <script type="text/javascript" src="source/jquery.address.min.js"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-    <script type="text/javascript" src="source/jquery.geocomplete.min.js"></script>
-    <script type="text/javascript" src="source/maps_lib.js"></script>
-    <script type='text/javascript'>
-      //<![CDATA[
-        $(window).resize(function () {
-          var h = $(window).height(),
+        <div class='container-fluid'>
+            <div class='row-fluid'>
+                <div class='span4'>
+                    <div id='well Title'>
+                        <h2 id='titleMainText'>
+                            Scorched Earth
+                        </h2>
+                        <p id='titleSub'>
+                            Mapping The Wake of School Actions in the Era of Corporate Education Reform, 1997-2013
+                        </p>
+                    </div>
+                    <div>
+                        <span class="badge number one">1</span>
+                        <h3 class="hoverExpand">
+                            Find
+                        </h3>
+                    </div>
+                  <div class='well dry'>
+                        <div class='expandInput'>
+                            <input class='input-block-level' id='search_address' placeholder='Enter an address or an intersection' type='text'>(<a id='find_me' href='#'>Find Me</a>) <label>within <select class='input-small' id='search_radius'>
+                                <option value='400'>
+                                    2 blocks
+                                </option>
+                                <option value='805'>
+                                    1/2 mile
+                                </option>
+                                <option value='1610'>
+                                    1 mile
+                                </option>
+                                <option value='3220'>
+                                    2 miles
+                                </option>
+                            </select></label> <input class='input-block-level' id='text_search' placeholder="Find a School or Campus" type='text' data-provide="typeahead"> <input class='btn btn-primary' id='search' type='button' value='Search'> <button class='btn' id='reset'>Reset</button>
+                        </div>
+                    </div>  
+                    <div class='well dry'>
+                    <span class="badge number">2</span>
+                    <h3 class="hoverExpand2">
+                        Filter
+                    </h3>
+                  
+                        <h5>
+                        What Happened?
+                        </h5>
+                        <span class='expandInput2'>
+                            <ul class="filtercontainer">
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action1" name="" checked='checked'> <label for="action1"><a>Closure</a></label></span>
+                                </li>
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action2" name="" checked='checked'> <label for="action2"><a>Closure and Consolidation</a></label></span>
+                                </li>
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action3" name="" checked='checked'> <label for="action3"><a>Consolidation</a></label></span>
+                                </li>
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action4" name="" checked='checked'> <label for="action4"><a>Consolidation and Phase-Out</a></label></span>
+                                </li>
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action5" name="" checked='checked'> <label for="action5"><a>Consolidation and Turnaround</a></label></span>
+                                </li>
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action6" name="" checked='checked'> <label for="action6"><a>Turnaround</a></label></span>
+                                </li>
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action7" name="" checked='checked'> <label for="action7"><a>Phaseout</a></label></span>
+                                </li>
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action8" name="" checked='checked'> <label for="action8"><a>Opening</a></label></span>
+                                </li>
+                            </ul>
+                        </span>
+                   
+                  </div>
+                    <div class='well dry'>
+                        <!--<h4 style="clear:both">
+                        Who Runs It
+                        </h4><p> Much of the public's focus is placed on the number or net growth rate of Charter campuses (individual school units) or operators (the cap on Charter operators has increased to 30 for coming years, leading the way for institutional expansion) when accounting for the privatization of public education and broad shifts in education reform. Students from closures, consolidations, and phase-outs typically have to be relocated (one exception is phased-out middle schools) into a receiving schools and CPS will often reredistribute students from district operated schools that have been closed, consolidated, or phased-out into existing schools in the charter network. This forms a different mechanism by which the share of students in district operated and charter operater schools, respectively, can be administratively effected.</p> -->
+                        <div class='left'>
+                            <h5 style="clear:both">
+                                Originating
+                            </h5>
+                            <ul class='filtercontainer'>
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="origop1" name="" checked='checked'> <label for="origop1"><a>District</a></label></span>
+                                </li>
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="origop4" name="" checked='checked'> <label for="origop4"><a>District-Selective</a></label></span>
+                                </li>
+                               <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="origop6" name="" checked='checked'> <label for="origop6"><a>District-Performance</a></label></span>
+                                </li>
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="origop2" name="" checked='checked'> <label for="origop2"><a>Charter</a></label></span>
+                                </li>
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="origop3" name="" checked='checked'> <label for="origop3"><a>Contract</a></label></span>  
+                                </li>                         
+                            </ul>
+                        </div>
+                        <div class='right'>
+                            <h5>
+                                Receiving
+                            </h5>
+                            <ul class='filtercontainer'>
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="recop1" name="" checked='checked'> <label for="recop1"><a>District</a></label></span>  
+                                </li> 
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="recop2" name="" checked='checked'> <label for="recop2"><a>Charter</a></label></span>  
+                                </li>  
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="recop3" name="" checked='checked'> <label for="recop3"><a>Contract</a></label></span>  
+                                </li> 
+                               <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="recop4" name="" checked='checked'> <label for="recop4"><a>Demolished</a></label></span>  
+                                </li> 
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="recop5" name="" checked='checked'> <label for="recop5"><a>Other (Vacant, Private, etc.)</a></label></span>  
+                                </li> 
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="recop6" name="" checked='checked'> <label for="recop6"><a>N/A</a></label></span>  
+                                </li> 
+                                <li class='filterarray'>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="recop0" name="" checked='checked'> <label for="recop0"><a>N/A</a></label></span>  
+                                </li>                       
+                            </ul>
+                        </div>
+                    </div>
+                    <div class='well dry bottom'>
+                        <h5>
+                            By Year <small><span id='age-selected-start'>1997</span> - <span id='age-selected-end'>2013</span></small>
+                        </h5>
+                        <div id='age-slider'></div><span class='pull-left'>1997</span> <span class='pull-right'>2013</span>
+                    </div>
+                    <p class='alert alert-info lead' id='result_count'></p>
+                </div>
+                <div class='span8'>
+                    <div class='layerGroup'>
+                        <div class="btn-group mapLayers" data-toggle="buttons-radio">
+                            <!--<span class='layerFilter'>--><input class='btn btn-primary layer' id='edi' name='edi' type='button' value='Economic Development Index Layer'> <input class='btn btn-primary layer' id='default' name='edi' type='button' value='Default'><!--</span>-->
+                        </div>
+                        <div id='map_canvas' style="clear:both"></div>
+                        <p class='pull-right'>
+                            <!--<span class='layerFilter'>--><a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a><!--</span>-->
+                        </p>
+                    </div>
+                </div>
+            </div><span class='layerFilter'><script type="text/javascript" src="source/jquery.js">
+</script> <script type="text/javascript" src="source/jquery.rotate.1-1.js">
+</script> <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js" type="text/javascript">
+</script> <script type="text/javascript" src="source/bootstrap.js">
+</script> <script type="text/javascript" src="source/jquery.address.min.js">
+</script> <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places">
+</script> <script type="text/javascript" src="source/jquery.geocomplete.min.js">
+</script> <script type="text/javascript" src="source/maps_lib.js">
+</script> <script type='text/javascript'>
+//<![CDATA[
+            $(window).resize(function () {
+            var h = $(window).height(),
             offsetTop = 120; // Calculate the top offset
-          $('#map_canvas').css('height', (h - offsetTop));
-        }).resize();
+            $('#map_canvas').css('height', (h - offsetTop));
+            }).resize();
 
-        $(function() {
-          MapsLib.initialize();
-          $("#search_address").geocomplete();
+            $(function() {
+            MapsLib.initialize();
+            $("#search_address").geocomplete();
 
-          $(':checkbox').click(function(){
+            $(':checkbox').click(function(){
             MapsLib.doSearch();
-          });
+            });
 
-          $(':radio').click(function(){
+            $(':radio').click(function(){
             MapsLib.doSearch();
-          });
-          
-          $('#search_radius').change(function(){
+            });
+
+            $('#search_radius').change(function(){
             MapsLib.doSearch();
-          });
-          
-          $('#search').click(function(){
+            });
+
+            $('#search').click(function(){
             MapsLib.doSearch();
-          });
-          
-          $('#find_me').click(function(){
+            });
+
+            $('#find_me').click(function(){
             MapsLib.findMe(); 
             return false;
-          });
-          
-          $('#reset').click(function(){
+            });
+
+            $('#reset').click(function(){
             $.address.parameter('address','');
             MapsLib.initialize(); 
             return false;
-          });
-          
-          $(":text").keydown(function(e){
+            });
+
+            $(":text").keydown(function(e){
               var key =  e.keyCode ? e.keyCode : e.which;
               if(key == 13) {
                   $('#search').click();
                   return false;
               }
-          });
-          $('#edi').click(function(){
+            });
+            $('#edi').click(function(){
             MapsLib.edi.setMap(map);
             MapsLib.searchrecords.setMap(map);
-          });
-          $('#default').click(function(){
+            });
+            $('#default').click(function(){
             MapsLib.edi.setMap(null);
-          });
-     
-  $('.expandInput').hide();  
+            });
 
-   $(document).ready(function() {
-   $('.hoverExpand').click(function() {
-       $('.expandInput').show("slow");
-        $(".expandInput").css({"margin-top": "20px"});
-   });
-   $('.expandInput').mouseleave(function() {
-       $('.expandInput').hide("slow")
-       }); 
-   });
+            $('.expandInput').hide();  
 
-          
-        });
-      //]]>
-    </script>
-  </body>
+            $(document).ready(function() {
+            $('.hoverExpand').click(function() {
+            $('.hoverExpand,.badge.number.one').fadeOut(600, function() {
+            $('.expandInput').fadeIn(600);
+            //    $(".expandInput").css({"margin-top": "50px"})// Animation complete
+            });
+
+            });
+            $('.expandInput').mouseleave(function() {
+            $('.expandInput').fadeOut(600,function() {
+            $('.hoverExpand,.badge.number.one').fadeIn(600);
+
+            }
+
+            );
+            }); 
+
+            });
+
+
+            });
+            //]]>
+            </script></span>
+        </div>
+    </body>
 </html>

@@ -57,8 +57,30 @@ var MapsLib = {
                     position: google.maps.ControlPosition.TOP_RIGHT
                 },
       center: MapsLib.map_centroid,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles:  [
+  {
+    "stylers": [
+      { "saturation": -99 }
+    ]
+  },{
+    "featureType": "poi",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "road.highway",
+    "elementType": "labels.icon",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  }]
+
+};
+
+
+
+   // };
     map = new google.maps.Map($("#map_canvas")[0], myOptions);
 
 
@@ -78,8 +100,8 @@ var MapsLib = {
         from: MapsLib.ediTableId,
         select: "col54"
      },
-     styleId: 3,
-      templateId: 4,
+     styleId: 4,
+      templateId: 5,
       zOrder:1,
      suppressInfoWindows: true
     }); 
@@ -93,7 +115,7 @@ var MapsLib = {
     var loadRadius = MapsLib.convertToPlainString($.address.parameter('radius'));
     if (loadRadius != "") $("#search_radius").val(loadRadius);
     else $("#search_radius").val(MapsLib.searchRadius);
-    $(".checked").attr("checked", "checked");
+    //$(".checked").attr("checked", "checked");
     $('.nav-tabs').button()
     $("#result_count").hide();
     $("#text_search").val("");
@@ -189,7 +211,7 @@ var MapsLib = {
     whereClause += " AND 'Year' >= '" + $("#age-selected-start").html() + "'";
     whereClause += " AND 'Year' <= '" + $("#age-selected-end").html() + "'";
 
-    
+
 
 
     //-------end of custom filters--------
@@ -378,6 +400,7 @@ var MapsLib = {
   //-----custom functions-------
   // NOTE: if you add custom functions, make sure to append each one with a comma, except for the last one.
   // This also applies to the convertToPlainString function above
+
 
   //-----end of custom functions-------
 }
