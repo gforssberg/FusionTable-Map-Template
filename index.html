@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="styles/bootstrap.spacelab.min.css" type="text/css">
         <link rel="stylesheet" href="styles/bootstrap-responsive.min.css" type="text/css">
         <link rel="stylesheet" href="styles/custom.css" type="text/css">
+        <link rel="stylesheet" href="styles/normalize.css" type="text/css">
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" type="text/css"><!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
       <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -27,7 +28,7 @@
         <div class='container-fluid'>
             <div class='row-fluid'>
                 <div class='span4'>
-                    <div id='well Title'>
+                    <div id='well dry title'>
                         <h2 id='titleMainText'>
                             Scorched Earth
                         </h2>
@@ -64,10 +65,10 @@
                     <h3 class="hoverExpand2">
                         Filter
                     </h3>
-                  
-                        <h5>
+                  <div class="well dry sub">
+                        <h6>
                         What Happened?
-                        </h5>
+                        </h6>
                         <span class='expandInput2'>
                             <ul class="filtercontainer">
                                 <li class='filterarray'>
@@ -96,16 +97,16 @@
                                 </li>
                             </ul>
                         </span>
-                   
+                   </div>
                   </div>
                     <div class='well dry'>
                         <!--<h4 style="clear:both">
                         Who Runs It
                         </h4><p> Much of the public's focus is placed on the number or net growth rate of Charter campuses (individual school units) or operators (the cap on Charter operators has increased to 30 for coming years, leading the way for institutional expansion) when accounting for the privatization of public education and broad shifts in education reform. Students from closures, consolidations, and phase-outs typically have to be relocated (one exception is phased-out middle schools) into a receiving schools and CPS will often reredistribute students from district operated schools that have been closed, consolidated, or phased-out into existing schools in the charter network. This forms a different mechanism by which the share of students in district operated and charter operater schools, respectively, can be administratively effected.</p> -->
-                        <div class='left'>
-                            <h5 style="clear:both">
+                        <div class='well dry sub'>
+                            <h6 style="clear:both">
                                 Originating
-                            </h5>
+                            </h6>
                             <ul class='filtercontainer'>
                                 <li class='filterarray'>
                                     <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="origop1" name="" checked='checked'> <label for="origop1"><a>District</a></label></span>
@@ -124,10 +125,10 @@
                                 </li>                         
                             </ul>
                         </div>
-                        <div class='right'>
-                            <h5>
+                        <div class='well dry sub'>
+                            <h6 style="clear:both">
                                 Receiving
-                            </h5>
+                            </h6>
                             <ul class='filtercontainer'>
                                 <li class='filterarray'>
                                     <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="recop1" name="" checked='checked'> <label for="recop1"><a>District</a></label></span>  
@@ -153,8 +154,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class='well dry bottom'>
-                        <h5>
+                    <div class='well dry sub'>
+                        <h5 style="clear:both">
                             By Year <small><span id='age-selected-start'>1997</span> - <span id='age-selected-end'>2013</span></small>
                         </h5>
                         <div id='age-slider'></div><span class='pull-left'>1997</span> <span class='pull-right'>2013</span>
@@ -226,7 +227,10 @@
                   return false;
               }
             });
-            $('#edi').click(function(){
+
+            //Moved footer jquery functions to maps_lib.js to keep markup and scripts distinct//
+
+          /*  $('#edi').click(function(){
             MapsLib.edi.setMap(map);
             MapsLib.searchrecords.setMap(map);
             });
@@ -253,7 +257,7 @@
             );
             }); 
 
-            });
+            });*/
 
 
             });

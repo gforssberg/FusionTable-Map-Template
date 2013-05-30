@@ -396,11 +396,57 @@ var MapsLib = {
     if (text == undefined) return '';
     return decodeURIComponent(text);
   }
+}
 
   //-----custom functions-------
-  // NOTE: if you add custom functions, make sure to append each one with a comma, except for the last one.
-  // This also applies to the convertToPlainString function above
+ 
+
+ 
+
+
 
 
   //-----end of custom functions-------
-}
+
+$('#edi').click(function(){
+            MapsLib.edi.setMap(map);
+            MapsLib.searchrecords.setMap(map);
+            });
+            $('#default').click(function(){
+            MapsLib.edi.setMap(null);
+            });
+
+            $('.expandInput').hide();  
+
+            $(document).ready(function() {
+            $('.hoverExpand').click(function() {
+            $('.hoverExpand,.badge.number.one').fadeOut(600, function() {
+            $('.expandInput').fadeIn(600);
+            //    $(".expandInput").css({"margin-top": "50px"})// Animation complete
+            });
+
+            });
+            $('.expandInput').mouseleave(function() {
+            $('.expandInput').fadeOut(600,function() {
+            $('.hoverExpand,.badge.number.one').fadeIn(600);
+            }  );
+         }); 
+      })
+
+            $(".filterarray").sortable();
+            var $body = $(document.body);
+
+/*$('div').each(function(){
+    var $this = $(this),
+       offset = $this.offset(),
+        width = $this.outerWidth(),
+       height = $this.outerHeight()
+
+    $body.append(
+        $('<div style="position:absolute;border:1px solid #00F;background:#99F;opacity:.3;"></div>')
+        .css(offset)
+        .css({ width: width, height: height })
+    );
+});*/
+
+   
