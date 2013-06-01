@@ -52,6 +52,7 @@ var MapsLib = {
       zoom: MapsLib.defaultZoom,
       minZoom: 11,
       streetViewControl: false,
+      satelliteViewControl:false,
       zoomControlOptions: {
                     style: google.maps.ZoomControlStyle.SMALL,
                     position: google.maps.ControlPosition.TOP_RIGHT
@@ -60,8 +61,14 @@ var MapsLib = {
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles:  [
   {
+    "featureType": "landscape.natural",
     "stylers": [
-      { "saturation": -99 }
+      { "color": "#ffffff" }
+    ]
+  },{
+    "featureType": "landscape.man_made",
+    "stylers": [
+      { "color": "#ffffff" }
     ]
   },{
     "featureType": "poi",
@@ -69,14 +76,49 @@ var MapsLib = {
       { "visibility": "off" }
     ]
   },{
+    "featureType": "transit",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "road.arterial",
+    "stylers": [
+      { "visibility": "simplified" },
+      { "weight": 0.4 },
+      { "color": "#dbdad8" }
+    ]
+  },{
+    "featureType": "road.arterial",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" },
+      { "color": "#c5df80" }
+    ]
+  },{
     "featureType": "road.highway",
-    "elementType": "labels.icon",
+    "stylers": [
+      { "color": "#000000" },
+      { "visibility": "simplified" }
+    ]
+  },{
+    "featureType": "road.highway",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "water",
+    "stylers": [
+      { "color": "#000000" }
+    ]
+  },{
+    "featureType": "administrative.locality",
     "stylers": [
       { "visibility": "off" }
     ]
   }]
-
 };
+
 
 
 
@@ -366,10 +408,13 @@ var MapsLib = {
 
     var name = MapsLib.recordNamePlural;
     if (numRows == 1) name = MapsLib.recordName;
-    $("#result_count").fadeOut(function() {
+    $("#result_count").slideUp(function() {
       $("#result_count").html(MapsLib.addCommas(numRows) + " " + name + " found");
     });
-    $("#result_count").fadeIn();
+    $("#result_count").css({"display": "block"})
+    $("#result_count").slideDown("slow")
+    
+    
   },
 
   addCommas: function(nStr) {
@@ -416,25 +461,80 @@ $('#edi').click(function(){
             MapsLib.edi.setMap(null);
             });
 
-            $('.expandInput').hide();  
+           
 
             $(document).ready(function() {
-            $('.hoverExpand').click(function() {
-            $('.hoverExpand,.badge.number.one').fadeOut(600, function() {
-            $('.expandInput').fadeIn(600);
-            //    $(".expandInput").css({"margin-top": "50px"})// Animation complete
+            $('#filter1').mouseenter(function() {
+           $("#sub1").animate({"padding-left": "10px",}, 'slow');// Animation complete
+           $("#filterText1").fadeIn("slow");
+           //$("#filterText1").css({"display": "inline-block"})
             });
 
             });
-            $('.expandInput').mouseleave(function() {
-            $('.expandInput').fadeOut(600,function() {
-            $('.hoverExpand,.badge.number.one').fadeIn(600);
-            }  );
+            $('#filter1').mouseleave(function() {
+            $("#sub1").animate({"padding-left": "0px",}, 'slow');
+            $("#filterText1").fadeOut("slow");
+            
          }); 
-      })
 
-            $(".filterarray").sortable();
-            var $body = $(document.body);
+            $('#filter2').mouseenter(function() {
+           $("#sub2").animate({"padding-left": "10px",}, 'slow');
+           $("#filterText2").fadeIn("slow");// Animation complete
+            });
+
+            $('#filter2').mouseleave(function() {
+            $("#sub2").animate({"padding-left": "0px",}, 'slow');
+            $("#filterText2").fadeOut("slow");
+         }); 
+
+            $('#filter3').mouseenter(function() {
+           $("#sub3").animate({"padding-left": "10px",}, 'slow');
+           $("#filterText3").fadeIn("slow");// Animation complete
+            });
+          $('#filter3').mouseleave(function() {
+            $("#sub3").animate({"padding-left": "0px",}, 'slow');
+            $("#filterText3").fadeOut("slow");
+         }); 
+
+//
+          $('#filter1').click(function() {
+           $("#sub2,#sub3").fadeOut("slow",function () {
+           $("#sub1").fadeIn("slow");})
+           // Animation complete
+            });
+
+          $('#filter2').click(function() {
+           $("#sub1").fadeOut("slow",function () {
+           $("#sub2,#sub3").fadeIn("slow");})
+           $("#sub2,#sub3").css({"margin-top": "-13%"})
+          
+           // Animation complete
+            });
+          $('#filter3').click(function() {
+           $("#sub1").fadeOut("slow", function () {
+           $("#sub2,#sub3").fadeIn("slow");
+           $("#sub2,#sub3").css({"margin-top": "-13%"})
+         });
+           
+
+
+
+});
+            
+
+ $(".filterarray").sortable();
+          
+
+
+
+       /*   setTimeout(function() {
+    //console.log("refetching map tiles");
+    MapsLib.uncacheTiles();
+  },3000);*/
+
+      
+
+
 
 /*$('div').each(function(){
     var $this = $(this),

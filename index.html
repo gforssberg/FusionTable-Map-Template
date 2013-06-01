@@ -12,23 +12,20 @@
         <link rel="stylesheet" href="styles/bootstrap-responsive.min.css" type="text/css">
         <link rel="stylesheet" href="styles/custom.css" type="text/css">
         <link rel="stylesheet" href="styles/normalize.css" type="text/css">
-        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" type="text/css"><!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" type="text/css">-->
+        <link rel="stylesheet" href="styles/jquery-ui.css" type="text/css">
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
       <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     </head>
     <body>
-        <div class='navbar'>
-            <div class='navbar-inner'>
-                <div class='container'>
-                    <a class='brand' href='/'></a>
-                </div>
-            </div>
-        </div>
+    
         <div class='container-fluid'>
             <div class='row-fluid'>
+
                 <div class='span4'>
-                    <div id='well dry title'>
+                     <div id='title'>
                         <h2 id='titleMainText'>
                             Scorched Earth
                         </h2>
@@ -36,55 +33,73 @@
                             Mapping The Wake of School Actions in the Era of Corporate Education Reform, 1997-2013
                         </p>
                     </div>
-                    <div>
-                        <span class="badge number one">1</span>
-                        <h3 class="hoverExpand">
-                            Find
-                        </h3>
-                    </div>
+                    
+                   
+
                   <div class='well dry'>
                         <div class='expandInput'>
-                            <input class='input-block-level' id='search_address' placeholder='Enter an address or an intersection' type='text'>(<a id='find_me' href='#'>Find Me</a>) <label>within <select class='input-small' id='search_radius'>
+                            <h4 class="hoverExpand" style="margin:0 0 0 0">
+                            Find
+                        </h4>
+                            (<a id='find_me' style="font-size:10px" href='#'>Find Me</a>)
+                            <input class='input-block-level' id='search_address' placeholder='Enter an address or an intersection' type='text'> <label><span style="font-size:10px">within</span> <select class='input-small' id='search_radius'>
                                 <option value='400'>
                                     2 blocks
                                 </option>
                                 <option value='805'>
-                                    1/2 mile
+                                    1/2 mi
                                 </option>
                                 <option value='1610'>
-                                    1 mile
+                                    1 mi
                                 </option>
                                 <option value='3220'>
-                                    2 miles
+                                    2 mi
                                 </option>
                             </select></label> <input class='input-block-level' id='text_search' placeholder="Find a School or Campus" type='text' data-provide="typeahead"> <input class='btn btn-primary' id='search' type='button' value='Search'> <button class='btn' id='reset'>Reset</button>
                         </div>
                     </div>  
-                    <div class='well dry'>
-                    <span class="badge number">2</span>
-                    <h3 class="hoverExpand2">
-                        Filter
-                    </h3>
-                  <div class="well dry sub">
-                        <h6>
+                    <div class='well dry sub'>
+                        <h5>
+                         <small><span id='age-selected-start'>1997</span> - <span id='age-selected-end'>2013</span></small>
+                        </h5>
+                        <div id='age-slider'></div><span class='pull-left'>1997</span> <span class='pull-right'>2013</span>
+                    </div>
+                   <!-- <p class='alert alert-info lead' id='result_count'></p>-->
+                
+                    <div class='well dry' style="margin:10% 0 0 0">
+                 <!--   <span class="badge number">2</span>-->
+
+                    <h4 class="hoverExpand2">
+                        Filter Tags 
+                    </h4>
+                    <span id="filters">(By 
+                        <span id="filter1"> Action Type,</span>
+                        <span id="filter2">Closing School Type,</span> 
+                        <span id="filter3">and Receiving School Type)</span>
+                        
+                    </span>
+                  <div class="well dry">
+                       <!-- <h6>
                         What Happened?
-                        </h6>
+                        </h6>-->
+                        
+                        
                         <span class='expandInput2'>
-                            <ul class="filtercontainer">
+                            <ul class="filtercontainer"id="sub1">
                                 <li class='filterarray'>
                                     <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action1" name="" checked='checked'> <label for="action1"><a>Closure</a></label></span>
                                 </li>
                                 <li class='filterarray'>
-                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action2" name="" checked='checked'> <label for="action2"><a>Closure and Consolidation</a></label></span>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action2" name="" checked='checked'> <label for="action2"><a>Closure &amp; Consolidation</a></label></span>
                                 </li>
                                 <li class='filterarray'>
                                     <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action3" name="" checked='checked'> <label for="action3"><a>Consolidation</a></label></span>
                                 </li>
                                 <li class='filterarray'>
-                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action4" name="" checked='checked'> <label for="action4"><a>Consolidation and Phase-Out</a></label></span>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action4" name="" checked='checked'> <label for="action4"><a>Consolidation &amp; Phase-Out</a></label></span>
                                 </li>
                                 <li class='filterarray'>
-                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action5" name="" checked='checked'> <label for="action5"><a>Consolidation and Turnaround</a></label></span>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action5" name="" checked='checked'> <label for="action5"><a>Consolidation &amp; Turnaround</a></label></span>
                                 </li>
                                 <li class='filterarray'>
                                     <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action6" name="" checked='checked'> <label for="action6"><a>Turnaround</a></label></span>
@@ -93,21 +108,23 @@
                                     <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action7" name="" checked='checked'> <label for="action7"><a>Phaseout</a></label></span>
                                 </li>
                                 <li class='filterarray'>
-                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action8" name="" checked='checked'> <label for="action8"><a>Opening</a></label></span>
+                                    <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="action8" name="" checked='checked'> <label for="action8"><a>Opening</a></label></span></li>
+                                    <li id="filterText1"style="display: none;font-size: 10px;line-height: 13px;font-style: italic;float:left;padding: 5px 0px 0px;"> Action Type
                                 </li>
                             </ul>
                         </span>
+
                    </div>
                   </div>
                     <div class='well dry'>
                         <!--<h4 style="clear:both">
                         Who Runs It
                         </h4><p> Much of the public's focus is placed on the number or net growth rate of Charter campuses (individual school units) or operators (the cap on Charter operators has increased to 30 for coming years, leading the way for institutional expansion) when accounting for the privatization of public education and broad shifts in education reform. Students from closures, consolidations, and phase-outs typically have to be relocated (one exception is phased-out middle schools) into a receiving schools and CPS will often reredistribute students from district operated schools that have been closed, consolidated, or phased-out into existing schools in the charter network. This forms a different mechanism by which the share of students in district operated and charter operater schools, respectively, can be administratively effected.</p> -->
-                        <div class='well dry sub'>
-                            <h6 style="clear:both">
+                        <div class='well dry clear' >
+                            <!--<h6 style="clear:both">
                                 Originating
-                            </h6>
-                            <ul class='filtercontainer'>
+                            </h6>-->
+                            <ul class='filtercontainer' id="sub2">
                                 <li class='filterarray'>
                                     <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="origop1" name="" checked='checked'> <label for="origop1"><a>District</a></label></span>
                                 </li>
@@ -122,14 +139,16 @@
                                 </li>
                                 <li class='filterarray'>
                                     <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="origop3" name="" checked='checked'> <label for="origop3"><a>Contract</a></label></span>  
-                                </li>                         
+                                </li>  
+                                                                    <li id="filterText2"style="display: none;font-size: 10px;line-height: 13px;font-style: italic;float:left;padding: 5px 0px 0px;"> Originating School Type</li>
+                       
                             </ul>
                         </div>
-                        <div class='well dry sub'>
-                            <h6 style="clear:both">
+                        <div class='well dry clear'>
+                           <!-- <h6 style="clear:both">
                                 Receiving
-                            </h6>
-                            <ul class='filtercontainer'>
+                            </h6>-->
+                            <ul class='filtercontainer' id="sub3">
                                 <li class='filterarray'>
                                     <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="recop1" name="" checked='checked'> <label for="recop1"><a>District</a></label></span>  
                                 </li> 
@@ -150,27 +169,27 @@
                                 </li> 
                                 <li class='filterarray'>
                                     <span class="checkboxCustom"><input type="checkbox" class='checkboxTwoInput' id="recop0" name="" checked='checked'> <label for="recop0"><a>N/A</a></label></span>  
-                                </li>                       
+                                </li> 
+                                                                    <li id="filterText3"style="display: none;font-size: 10px;line-height: 12px;font-style: italic;float:left;padding: 1px 0px 0px;"> Receiving </br> School <br>Type</li>
+                      
                             </ul>
                         </div>
-                    </div>
-                    <div class='well dry sub'>
-                        <h5 style="clear:both">
-                            By Year <small><span id='age-selected-start'>1997</span> - <span id='age-selected-end'>2013</span></small>
-                        </h5>
-                        <div id='age-slider'></div><span class='pull-left'>1997</span> <span class='pull-right'>2013</span>
-                    </div>
-                    <p class='alert alert-info lead' id='result_count'></p>
+                        <p class='alert alert-info lead' id='result_count'></p>
+                    </div>                
                 </div>
+
+                    
                 <div class='span8'>
-                    <div class='layerGroup'>
+                    <div class='well dry right'>
+                        <div id="wrapper">
                         <div class="btn-group mapLayers" data-toggle="buttons-radio">
                             <!--<span class='layerFilter'>--><input class='btn btn-primary layer' id='edi' name='edi' type='button' value='Economic Development Index Layer'> <input class='btn btn-primary layer' id='default' name='edi' type='button' value='Default'><!--</span>-->
                         </div>
                         <div id='map_canvas' style="clear:both"></div>
                         <p class='pull-right'>
-                            <!--<span class='layerFilter'>--><a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a><!--</span>-->
+                            <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a>
                         </p>
+                    </div>       
                     </div>
                 </div>
             </div><span class='layerFilter'><script type="text/javascript" src="source/jquery.js">
@@ -185,8 +204,8 @@
 //<![CDATA[
             $(window).resize(function () {
             var h = $(window).height(),
-            offsetTop = 120; // Calculate the top offset
-            $('#map_canvas').css('height', (h - offsetTop));
+            offsetTop = 80; // Calculate the top offset
+            $('.well.dry.right').css('height', (h - offsetTop));
             }).resize();
 
             $(function() {

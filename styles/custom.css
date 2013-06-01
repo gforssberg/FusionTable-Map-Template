@@ -1,8 +1,12 @@
 a { color: #4B58A6; }
 
-#map_canvas img {
+#map_canvas, #map_canvas img {
   max-width: none;
+  height:100%;
 }
+
+canvas {-ms-touch-action: double-tap-zoom;}
+/*Filters*/
 
 .filter-box { 
   height: 15px; 
@@ -24,32 +28,34 @@ a { color: #4B58A6; }
 .filter-purple { background-color: #7C54FB; }
 .filter-red { background-color: #FB6353; }
 
-canvas {-ms-touch-action: double-tap-zoom;}
-/*Filters*/
-.layerGroup {margin:0px; width:100%; display:inline-block;}
+div #wrapper {height:100%;margin-top:2%}
+
+.well.dry {background:none;padding: 0 0 0 0; border:none;-webkit-box-shadow:none;box-shadow:none;border-radius:none;}
+.well.dry.clear {clear:both;}
+
 .mapLayers {float:right;margin:0px;list-style-type: none;display:inline-block;}
-.btn-primary.layer {font-family:'OpenSansRegular','Helvetica Neue',Helvetica,Verdana,Arial,sans-serif;-webkit-transition:none;-khtml-transition:none;-moz-transition:none;-o-transition:none;transition:none;background-color:white;border:1px solid #CCC;border-radius:0px;border-bottom:none;background-image:none;display:block;color:#96979C;padding:0 15px;height:34px;line-height:35px;margin-left:1px;position:relative;font-size:11px;text-transform:uppercase;}
-#edi {float:left} #edi.active {background-color: orange;color:white;text-shadow:1.5px 0px 1.5px rgba(0, 0, 0, .5)} #edi.disabled{background-color:white}
-#default {float:right}
+.btn-primary.layer {text-shadow:none;font-family:'OpenSansRegular','Helvetica Neue',Helvetica,Verdana,Arial,sans-serif;-webkit-transition:none;-khtml-transition:none;-moz-transition:none;-o-transition:none;transition:none;background-color:white;border:1px solid #CCC;border-radius:0px;border-bottom:none;background-image:none;display:block;color:#96979C;padding:0 15px;height:30px;line-height:35px;margin-left:1px;position:relative;font-size:11px;text-transform:uppercase;}
+/*input#search.btn.btn-primary {background:none;color:black;border:0px;}*/
+#edi {float:left;webkit-border-bottom-left-radius: 0px;-moz-border-radius-bottomleft: 0px;border-bottom-left-radius:0px} #edi.active {background-color: orange;color:white;text-shadow:1.5px 0px 1.5px rgba(0, 0, 0, .5)} #edi.disabled{background-color:white}
+#default {float:right;webkit-border-bottom-left-radius: 0px;-moz-border-radius-bottom-right: 0px;border-bottom-right-radius:0px}
 
 
-.well.dry {background:none;padding: 0 0 0 0; border:none}
-.well.dry.sub {clear:both;}
-.well.dry.bottom {clear:both;}
 
 
-.badge.number {float:left;}
-.hoverExpand {line-height:30px;padding-left:40px;}
-h3.hoverExpand {}
+
+h4.hoverExpand {margin:0px}
+h4.hoverExpand2 {line-height:10px; margin: 0 5% 0 0;}
+#filters {font-size:10px; color:black;margin:0px;}
+#filter1,#filter2,#filter3, #filter4 {text-decoration:underline;color:blue;cursor: pointer} 
 .hoverExpand:hover {text-decoration: underline;cursor: pointer}
-.hoverExpand2 {line-height:30px;padding-left:40px;}
+.hoverExpand2 {line-height:30px;clear:both;}
 
 input[type=checkbox] { float:left;visibility: hidden;} 
 .checkboxCustom {color:black;}
 .checkboxCustom:before {color:black;}
-.checkboxCustom label  { display: -moz-inline-stack; display: inline-block; text-align:center; vertical-align: middle; *vertical-align: auto; zoom: 1; *display: inline; padding: 8px 12px 7px; margin-bottom: 4px; background-color: white; border: 1px solid #cccdc7; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; color: #787876;}
+.checkboxCustom label  { display: -moz-inline-stack; display: block; text-align:center; vertical-align: middle; *vertical-align: auto; zoom: 1; *display: inline; padding: 8px 12px 7px; margin-bottom: 4px; background-color: white; border: 1px solid #cccdc7; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; color: #787876; font-size: 85%; line-height: 70%; margin-right: 2px;}
 .checkboxCustom label:hover  {color: #e8554e; text-decoration: none; border-color: orange; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
-.checkboxCustom label a {font-size: 12px;text-align:center;}
+.checkboxCustom label a {font-size: 70%;text-align:center;}
 .checkboxCustom label a:hover {text-decoration:none;color:orange;border-bottom:1px dotted orange}
 .checkboxCustom input[type=checkbox]:checked + label a {text-decoration:none;color:orange}
 .checkboxCustom input[type=checkbox]:checked + label a:after {content: '  x'}
@@ -57,3 +63,4 @@ input[type=checkbox] { float:left;visibility: hidden;}
 .checkboxCustom input[type=checkbox]:not(:checked) + label {opacity:.3}
 .filterarray {float:left;}
 .filtercontainer {margin-left:0px;}
+#result_count {float:left;display:none;width:50%;height:15px;margin:0px;border-radius:0px;text-align:center;z-index:1000;position:relative;background-color:none;font-size:14px;padding:0 0 15px 0;opacity:1;color:orange;}
