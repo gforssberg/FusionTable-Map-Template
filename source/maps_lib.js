@@ -59,65 +59,126 @@ var MapsLib = {
                 },
       center: MapsLib.map_centroid,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-      styles:  [
+      styles:  
+[
   {
-    "featureType": "landscape.natural",
-    "stylers": [
-      { "color": "#ffffff" }
-    ]
-  },{
     "featureType": "landscape.man_made",
+    "elementType": "geometry.fill",
     "stylers": [
-      { "color": "#ffffff" }
+      { "color": "#e9e9e9" }
     ]
   },{
-    "featureType": "poi",
+    "featureType": "road.local",
+    "elementType": "geometry.fill",
     "stylers": [
-      { "visibility": "off" }
-    ]
-  },{
-    "featureType": "transit",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  },{
-    "featureType": "road.arterial",
-    "stylers": [
-      { "visibility": "simplified" },
-      { "weight": 0.4 },
-      { "color": "#dbdad8" }
+      { "color": "#ffffff" },
+      { "weight": 0.6 }
+
     ]
   },{
     "featureType": "road.arterial",
-    "elementType": "labels",
+    "elementType": "geometry",
     "stylers": [
-      { "visibility": "off" },
-      { "color": "#c5df80" }
+      { "color": "#c5c5c3" },
+       { "visibility": "simplified" },
+      { "weight": 0.6 }
     ]
   },{
-    "featureType": "road.highway",
+    "featureType": "poi.park",
+    "elementType": "geometry",
     "stylers": [
-      { "color": "#000000" },
-      { "visibility": "simplified" }
-    ]
-  },{
-    "featureType": "road.highway",
-    "elementType": "labels",
-    "stylers": [
+      { "color": "#c5c5c6" },
       { "visibility": "off" }
     ]
   },{
     "featureType": "water",
+    "elementType": "geometry.fill",
     "stylers": [
-      { "color": "#000000" }
+      { "color": "#c1c1c1" }
     ]
   },{
-    "featureType": "administrative.locality",
+    "featureType": "road.highway",
+    "elementType": "geometry",
     "stylers": [
+      { "color": "#a2a2a2" }
+    ]
+  },{
+    "featureType": "road.highway",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      { "visibility": "on" },
+      { "color": "#a9a9a9" }
+    ]
+  },{
+    "featureType": "poi.school",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#dadada" }
+    ]
+  },{
+    "featureType": "poi.school",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      { "color": "#dadada" }
+    ]
+  },{
+    "featureType": "road.arterial",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      { "color": "#c5c5c5" }
+
+    ]
+  },{
+    "featureType": "poi.sports_complex",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#d8d8d8" },
       { "visibility": "off" }
     ]
-  }]
+  },{
+    "featureType": "landscape.natural",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#dadadb" },
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "poi.business",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#bfbfbf" },
+       { "visibility": "off" },
+    ]
+  },{
+    "featureType": "poi.attraction"  },{
+    "featureType": "poi.government",
+    "elementType": "geometry",
+    "stylers": [
+      { "color": "#dadada" },
+     { "visibility": "off" }
+    ]
+  },{
+    "featureType": "poi.attraction",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#dadad7" },
+      { "visibility": "off" }
+    ]
+  },{
+    "stylers": [
+      { "saturation": -91 },
+      { "lightness": 18 }
+      ]
+  },{
+      "featureType": "administrative.locality",
+    "stylers": [
+      { "visibility": "off" }
+
+    ]
+  }
+]
 };
+
 
 
 
@@ -417,6 +478,8 @@ var MapsLib = {
     
   },
 
+
+
   addCommas: function(nStr) {
     nStr += '';
     x = nStr.split('.');
@@ -461,65 +524,47 @@ $('#edi').click(function(){
             MapsLib.edi.setMap(null);
             });
 
-           
+           /*
 
             $(document).ready(function() {
-            $('#filter1').mouseenter(function() {
-           $("#sub1").animate({"padding-left": "10px",}, 'slow');// Animation complete
-           $("#filterText1").fadeIn("slow");
-           //$("#filterText1").css({"display": "inline-block"})
-            });
+            $('#sub1').hover(function() {
+         $("#sub2,#sub3").stop(true,false).animate({"opacity": .2},500);
+      //   $("#sub1").animate({"margin-top" :"15px"});
+         $("#filterText1").stop(true,false).fadeIn(1);  
+       }, function () {
+         $("#sub2,#sub3").stop(true,false).animate({"opacity": 1},500);
+     //    $("#sub1").animate({"margin-top" :"0px"})
+         $("#filterText1").stop(true,false).fadeOut(1);             
+});
+});
 
-            });
-            $('#filter1').mouseleave(function() {
-            $("#sub1").animate({"padding-left": "0px",}, 'slow');
-            $("#filterText1").fadeOut("slow");
-            
-         }); 
+$(document).ready(function() {
+            $('#sub2').hover(function() {
+         $("#sub1,#sub3").stop(true,false).animate({"opacity": .2},500);
+         $("#filterText2").stop(true,false).fadeIn(1);  
+       }, function () {
+         $("#sub1,#sub3").stop(true,false).animate({"opacity": 1},500);
+         $("#filterText2").stop(true,false).fadeOut(1);             
+});
+});
 
-            $('#filter2').mouseenter(function() {
-           $("#sub2").animate({"padding-left": "10px",}, 'slow');
-           $("#filterText2").fadeIn("slow");// Animation complete
-            });
+$(document).ready(function() {
+            $('#sub3').hover(function() {
+         $("#sub1,#sub2").stop(true,false).animate({"opacity": .2},500);
+         $("#filterText3").stop(true,false).fadeIn(1);  
+       }, function () {
+         $("#sub1,#sub2").stop(true,false).animate({"opacity": 1},500);
+         $("#filterText3").stop(true,false).fadeOut(1);             
+});
+});
 
-            $('#filter2').mouseleave(function() {
-            $("#sub2").animate({"padding-left": "0px",}, 'slow');
-            $("#filterText2").fadeOut("slow");
-         }); 
+ 
+*/
 
-            $('#filter3').mouseenter(function() {
-           $("#sub3").animate({"padding-left": "10px",}, 'slow');
-           $("#filterText3").fadeIn("slow");// Animation complete
-            });
-          $('#filter3').mouseleave(function() {
-            $("#sub3").animate({"padding-left": "0px",}, 'slow');
-            $("#filterText3").fadeOut("slow");
-         }); 
-
-//
-          $('#filter1').click(function() {
-           $("#sub2,#sub3").fadeOut("slow",function () {
-           $("#sub1").fadeIn("slow");})
-           // Animation complete
-            });
-
-          $('#filter2').click(function() {
-           $("#sub1").fadeOut("slow",function () {
-           $("#sub2,#sub3").fadeIn("slow");})
-           $("#sub2,#sub3").css({"margin-top": "-13%"})
-          
-           // Animation complete
-            });
-          $('#filter3').click(function() {
-           $("#sub1").fadeOut("slow", function () {
-           $("#sub2,#sub3").fadeIn("slow");
-           $("#sub2,#sub3").css({"margin-top": "-13%"})
-         });
            
 
 
-
-});
+          
             
 
  $(".filterarray").sortable();
