@@ -18,14 +18,16 @@
     <![endif]-->
     </head>
     <body>
-        <div class="navbar" style=" min-height: 75px; background-color: black; width: 100%; position: relative;">
+        <div class="navbar" style=" min-height: 75px; background-color: #3E3E3E; width: 100%; position: relative;background-image: url("/img/header_top.png");
+background-repeat: repeat-x;
+background-position: bottom;">
             <div class="navbar-inner" style="">
                 <div id="title" style=" width: auto;">
                     <h2 id="titleMainText" style=" color: orange; float: left;">
                         Scorched Earth
                     </h2>
                     <h6 id="titleSub" style=" color: white; clear: both;">
-                        School Actions in the Era of Corporate Education Reform, 1997-2013
+                        The Educational Facade in the Corporate Education Reform Era, 1997-2013
                     </h6>
                 </div>
                 <div class="container"></div>
@@ -36,9 +38,9 @@
                 <div class="span4 wellToggle" style="background: #fafafa">
                     <div class="well one" style="padding: 2% 3% 4% 4%">
                         <div style=" margin: 0 0 5px 0;">
-                            <h4  style="margin:0 0 0 0;display: inline-block;">
+                            <h5 style="margin:0 0 0 0;display: inline-block;">
                                 Search
-                            </h4>(<a id="find_me" style="font-size:10px" href="#">Find Me</a>)
+                            </h5>(<a id="find_me" style="font-size:10px" href="#">Find Me</a>)
                         </div>
                         <div style="">
                             <input class="input-block-level" id="search_address" placeholder="Enter an address or an intersection" type="text" autocomplete="off" style=" display: inline-block;"> <label style=" display: inline-block; width: 35%; vertical-align: top;"><span style="font-size:10px;display: inline-block;">within</span> <select class="input-small" id="search_radius" style=" display: inline-block;">
@@ -60,29 +62,54 @@
                             <input class="input-block-level" id="text_search" placeholder="Find a School or Campus" type="text" data-provide="typeahead">
                         </div>
                         <div>
-                            <input class="btn btn-primary" id="search" type="button" value="Search" style=" margin: 0 5px 0 0;"><button class="btn" id="reset">Reset</button>
+                            <input class="btn btn-primary search" id="search" type="button" value="Search" style=" margin: 0 5px 0 0;"><button class="btn" id="reset">Reset</button>
                         </div>
                     </div>
+                    <div class="well two" style="height: auto;">
                         
-                    
-                    <div class="well two" style="padding: 0 13% 0 4%">
-                        <!--<h4 style="clear:both">
-                        Who Runs It
-                        </h4><p> Much of the public focus is placed on the number or net growth rate of Charter campuses (individual school units) or operators (the cap on Charter operators has increased to 30 for coming years, leading the way for institutional expansion) when accounting for the privatization of public education and broad shifts in education reform. Students from closures, consolidations, and phase-outs typically have to be relocated (one exception is phased-out middle schools) into a receiving schools and CPS will often reredistribute students from district operated schools that have been closed, consolidated, or phased-out into existing schools in the charter network. This forms a different mechanism by which the share of students in district operated and charter operater schools, respectively, can be administratively effected.</p> -->
-                    <div class="well">
+                            <h5 style="margin:0px;padding: 0 0 0 4%;">
+                                Filter &amp; Compare
+                            </h5>
+                           
+                            <ul class="nav nav-tabs" id="myTab" style="display: inline-block; width: 70%;">
+                            <li class="active" id="iconcontainerleft" style="width: 40%;min-height:20px; font-size: 9px;line-height: 8px;margin: 0px;float:left">
+                               <a href="#actions" style="text-align: center;padding: 0px;line-height: 10px;"> <span id="icon1" style="width:55px;height:46px;display:block;margin:auto"></span>
+                                   <span class="icontext"> School Closings and Actions</span></a>
+                                </li>
+                            <li id="iconcontainerright" style="font-size: 9px; width: 40%; margin: 0px; line-height: 10px; word-wrap: break-word;" class="">
+                                  <a href="#openings" style="text-align: center;padding: 0px;line-height: 10px;">
+                                  <span id="icon2" style="width:55px;height:46px;display:block">
+                                  </span><span class="icontext">School Openings</span></a>
+                                </li>
                             
-                                <p id="filterText1" style="font-size: 10px; line-height: 13px; float: left; padding: 0 0 5px 0; list-style: none; display: inline-block; position: relative; vertical-align: middle; color: black; margin: 0px;">Originating School Type
-                                </p>
-                                <ul class="filtercontainer" id="sub2">
+                            </ul>
+                        
+            
+                            
+                                
+                                
+                            <!--  <p id="filterText1" style="font-size: 10px; line-height: 13px; float: left; padding: 0 0 5px 0; list-style: none; display: inline-block; position: relative; vertical-align: middle; color: black; margin: 0px;">Originating School Type
+                                </p>-->
+                            <div class="tab-content" style="
+    background: #f4f4f2;
+    padding: 3% 2.5% 0 4%;
+    margin: 0 1.5% 0 2%;
+">
+                            <div class="tab-pane fade active in" id="actions">
+                            <div class="well" style=" height: auto; display: inline-block; padding: 0px;width:100%">
+                
+
+                                
+                                    <ul class="filtercontainer" style=" width: 80%; vertical-align: middle; margin:0px;float:left">
                                         <li class="filterarray ui-sortable">
                                             <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop1" name="" checked="checked"> <label for="origop1"><a>District</a></label></span>
                                         </li>
-                                        <li class="filterarray ui-sortable">
+                                       <!-- <li class="filterarray ui-sortable">
                                             <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop4" name="" checked="checked"> <label for="origop4"><a>District-Selective</a></label></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
                                             <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop6" name="" checked="checked"> <label for="origop6"><a>District-Performance</a></label></span>
-                                        </li>
+                                        </li>-->
                                         <li class="filterarray ui-sortable">
                                             <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop2" name="" checked="checked"> <label for="origop2"><a>Charter</a></label></span>
                                         </li>
@@ -90,17 +117,20 @@
                                             <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop3" name="" checked="checked"> <label for="origop3"><a>Contract</a></label></span>
                                         </li>
                                     </ul>
+                               <span style=" float: right; font-size: 9px; width: 20%; list-style: none; text-align: center; line-height: 10px; display: inline-block;">Operator of School Acted On
+                                </span>
                         </div>
-                        <div class="well" >
-                            <!-- <h6>
-                        What Happened?
-                        </h6>-->
-                        
-                                <p id="filterText2">Action Type </p>
-                        
-                                    <ul class="filtercontainer" id="sub1">
+                        <div class="well" style="
+    height: auto;
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+">
+                            
+                                
+                                    <ul class="filtercontainer" style=" width: 80%;margin: 0px;float:left;">
                                         <li class="filterarray ui-sortable">
-                                            <span class="expandInput2"><span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action1" name="" checked="checked"> <label for="action1"><a>Closure</a></label></span></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action1" name="" checked="checked"> <label for="action1"><a>Closure</a></label></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
                                             <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action2" name="" checked="checked"> <label for="action2"><a>Closure &amp; Consolidation</a></label></span>
@@ -109,27 +139,28 @@
                                             <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action3" name="" checked="checked"> <label for="action3"><a>Consolidation</a></label></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
+                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action6" name="" checked="checked"> <label for="action6"><a>Turnaround</a></label></span>
+                                        </li>
+                                        <li class="filterarray ui-sortable">
                                             <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action4" name="" checked="checked"> <label for="action4"><a>Consolidation &amp; Phase-Out</a></label></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
                                             <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action5" name="" checked="checked"> <label for="action5"><a>Consolidation &amp; Turnaround</a></label></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action6" name="" checked="checked"> <label for="action6"><a>Turnaround</a></label></span>
-                                        </li>
-                                        <li class="filterarray ui-sortable">
                                             <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action7" name="" checked="checked"> <label for="action7"><a>Phaseout</a></label></span>
                                         </li>
-                                        <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action8" name="" checked="checked"> <label for="action8"><a>Opening</a></label></span>
+                                        <li class="filterarray ui-sortable" style="">
+                                            <span class="checkboxCustom" style="display: none;"><input type="checkbox" class="checkboxTwoInput" id="action8" name=""> <label for="action8"><a>Opening</a></label></span>
                                         </li>
-                                    </ul>  
+                                    </ul>
+                             <span style=" float: right; font-size: 9px; width: 20%; list-style: none; text-align: center; display: inline-block; padding: auto; margin: auto; line-height: 93px;">Action Type
+                                </span>
                         </div>
-                        <div class="well">                          
-                                <p id="filterText3">Receiving School Type
-                                </p>
-                                <li style="list-style: none; display: inline">
-                                    <ul class="filtercontainer" id="sub3">
+                        <div  style=" width: 100%; display: inline-block; margin: 0px;">
+                            <!--   <p id="filterText3">Receiving School Type-->
+                               
+                                    <ul class="filtercontainer" style=" width: 80%;margin: 0px;float:left">
                                         <li class="filterarray ui-sortable">
                                             <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="recop1" name="" checked="checked"> <label for="recop1"><a>District</a></label></span>
                                         </li>
@@ -151,33 +182,84 @@
                                         <li class="filterarray ui-sortable">
                                             <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="recop0" name="" checked="checked"> <label for="recop0"><a>N/A</a></label></span>
                                         </li>
-                                    </ul>                             
+                                    </ul>
+                                <span style=" float: right; font-size: 9px; width: 20%; padding: 4% 0 4% 0; list-style: none; text-align: center; line-height: 10px;">Receiving School Operator/Result
+                                </span>
                         </div>
-                        <div class="well">
-                        <h5>
-                            <small><span id='age-selected-start'>1997</span> - <span id='age-selected-end'>2013</span></small>
-                        </h5>
-                        <div id='age-slider'></div><span class='pull-left'>1997</span> <span class='pull-right'>2013</span>
                     </div>
-                </div>
-                    <p class="alert alert-info lead" id="result_count2" style="display: block;clear: both;horizontal-align: center;text-align: center;width: 100%;margin: 10px 0 0 0;background-color: orange;color: white;">
+                          <div class="tab-pane fade" id="openings">
+                        <div style=" height: auto; display: inline-block; padding: 0px;">
+                
+                
+                                <li style=" float: right; font-size: 9px; width: 20%; padding: 4% 0% 4% 0; list-style: none; text-align: center; line-height: 10px;">Operator of Opening School
+                                </li>
+                                    <ul class="filtercontainer" style=" width: 80%; vertical-align: middle; margin:0px">
+                                        <li class="filterarray ui-sortable" style="">
+                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop1" name="" checked="checked"> <label for="origop1"><a>District</a></label></span>
+                                        </li>
+                                        <li class="filterarray ui-sortable" style="">
+                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop4" name="" checked="checked"> <label for="origop4"><a>District-Selective</a></label></span>
+                                        </li>
+                                        <li class="filterarray ui-sortable" style="">
+                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop6" name="" checked="checked"> <label for="origop6"><a>District-Performance</a></label></span>
+                                        </li>
+                                        <li class="filterarray ui-sortable" style="">
+                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop2" name="" checked="checked"> <label for="origop2"><a>Charter</a></label></span>
+                                        </li>
+                                        <li class="filterarray ui-sortable" style="">
+                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop3" name="" checked="checked"> <label for="origop3"><a>Contract</a></label></span>
+                                        </li>
+                                    </ul>
+                                
+                            
+                        </div>
+                        </div>
+
+                        <div>
+                            <h5>
+                                <small><span id="age-selected-start">1997</span> - <span id="age-selected-end">2013</span></small>
+                            </h5>
+                            <div id="age-slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
+                                <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a>
+                                <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div>
+                                <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div>
+                            <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div><div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div></div><span class="pull-left">1997</span> <span class="pull-right">2013</span>
+                        </div>
+                        <div style="
+    margin: 3% 0 0 0;
+    display: inline-block;
+    width: 100%;
+">
+                            <input class="btn btn-primary search" id="filter" type="button" value="Filter" style=" margin: 0 5px 0 0;"><button class="btn" id="compare">Compare</button>
+                        </div>
+                    </div>
+                    </div>
+                    <script>
+  $(function () {
+    $('#myTab a:last').tab('show');
+  })
+</script>
+
+                      <div class="btn-group mapLayers" data-toggle="buttons-radio">
+                                <input class='btn btn-primary layer' id='edi' name='edi' type='button' value='Economic Development Index Layer'> <input class='btn btn-primary layer' id='default' name='edi' type='button' value='Default'></div>
+
+                    <p class="alert alert-info lead" id="result_count" style="display: block;clear: both;horizontal-align: center;text-align: center;width: 100%;margin: 10px 0 0 0;background-color: orange;color: white;">
                         335 Actions found
                     </p>
                 </div>
+              
                 <div class='span8'>
                     <div class='well map'>
-                        <div id="wrapper">
-                           <!-- <div class="btn-group mapLayers" data-toggle="buttons-radio">
-                                <!--<span class='layerFilter'>--><!--<input class='btn btn-primary layer' id='edi' name='edi' type='button' value='Economic Development Index Layer'> <input class='btn btn-primary layer' id='default' name='edi' type='button' value='Default'>-->
-                            </div>
-                            <div id='map_canvas' style="clear:both"></div>
-                            <p class='pull-right'>
-                                <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a>
-                            </p>
+                        <div id="wrapper">   
                         </div>
+                        <div id='map_canvas' style="clear:both"></div>
+                        <p class='pull-right'>
+                            <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a>
+                        </p>
                     </div>
                 </div>
-            </div><span class='layerFilter'><script type="text/javascript" src="source/jquery.js">
+            </div>
+        </div><script type="text/javascript" src="source/jquery.js">
 </script> <script type="text/javascript" src="source/jquery.rotate.1-1.js">
 </script> <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js" type="text/javascript">
 </script> <script type="text/javascript" src="source/bootstrap.js">
@@ -232,41 +314,17 @@
               }
             });
 
-            //Moved footer jquery functions to maps_lib.js to keep markup and scripts distinct//
 
-            /*  $('#edi').click(function(){
-            MapsLib.edi.setMap(map);
-            MapsLib.searchrecords.setMap(map);
-            });
-            $('#default').click(function(){
-            MapsLib.edi.setMap(null);
-            });
 
-            $('.expandInput').hide();  
+$('#myTab a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+})
 
-            $(document).ready(function() {
-            $('.hoverExpand').click(function() {
-            $('.hoverExpand,.badge.number.one').fadeOut(600, function() {
-            $('.expandInput').fadeIn(600);
-            //    $(".expandInput").css({"margin-top": "50px"})// Animation complete
-            });
-
-            });
-            $('.expandInput').mouseleave(function() {
-            $('.expandInput').fadeOut(600,function() {
-            $('.hoverExpand,.badge.number.one').fadeIn(600);
-
-            }
-
-            );
-            }); 
-
-            });*/
 
 
             });
             //]]>
-            </script></span>
-        </div>
+        </script></span>
     </body>
 </html>

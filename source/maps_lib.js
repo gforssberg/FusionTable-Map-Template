@@ -299,7 +299,7 @@ var MapsLib = {
     
     whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
 
-    var type_column = "'RecTypeFlag'";
+   /* var type_column = "'RecTypeFlag'";
     var searchType = type_column + " IN (-1,";
     if ($("#recop1").is(':checked')) searchType += "1,";
     if ($("#recop2").is(':checked')) searchType += "2,";
@@ -308,7 +308,7 @@ var MapsLib = {
     if ($("#recop5").is(':checked')) searchType += "5,";
     if ($("#recop6").is(':checked')) searchType += "6,";
     if ($("#recop0").is(':checked')) searchType += "0,";
-    whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+    whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")"; */
 
 
     whereClause += " AND 'Year' >= '" + $("#age-selected-start").html() + "'";
