@@ -44,6 +44,8 @@ var MapsLib = {
   currentPinpoint: null,
 
 
+
+
   initialize: function() {
     $("#result_count").html("");
 
@@ -177,6 +179,10 @@ var MapsLib = {
     ]
   }
 ]
+
+
+
+
 };
 
 
@@ -186,6 +192,8 @@ var MapsLib = {
    // };
     map = new google.maps.Map($("#map_canvas")[0], myOptions);
 
+    
+ 
 
    MapsLib.commAreas = new google.maps.FusionTablesLayer({
       query: {
@@ -212,8 +220,6 @@ var MapsLib = {
      MapsLib.edi.setMap(null); 
 
 
-
-
     $("#search_address").val(MapsLib.convertToPlainString($.address.parameter('address')));
     var loadRadius = MapsLib.convertToPlainString($.address.parameter('radius'));
     if (loadRadius != "") $("#search_radius").val(loadRadius);
@@ -235,7 +241,12 @@ var MapsLib = {
       map.setCenter(MapsLib.map_centroid);
     });
 
+
+
     MapsLib.searchrecords = null;
+
+
+
 
     //reset filters
 
@@ -375,9 +386,6 @@ var MapsLib = {
 
 
 
-
-
-
   clearSearch: function() {
     if (MapsLib.searchrecords != null) MapsLib.searchrecords.setMap(null);
     if (MapsLib.addrMarker != null) MapsLib.addrMarker.setMap(null);
@@ -508,7 +516,7 @@ var MapsLib = {
 
   //-----custom functions-------
  
-
+ 
  
 
 
@@ -567,8 +575,7 @@ $(document).ready(function() {
           
             
 
- $(".filterarray").sortable();
-          
+  
 
 
 

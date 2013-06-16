@@ -30,18 +30,18 @@
 		</g>
 	</g>
 </g>
-<polygon opacity="0.76" fill="#C10000" stroke="#CE4147" stroke-width="0.75" stroke-miterlimit="10" enable-background="new    " points="
+<polygon opacity="0.76" fill="#C1C1C1" stroke="#CECECE" stroke-width="0.75" stroke-miterlimit="10" enable-background="new    " points="
 	39.633,26.897 28.564,33.415 34.678,44.802 35.191,42.949 47.163,46.263 51.121,31.961 39.15,28.647 "/>
-<line fill="none" stroke="#CE4147" stroke-width="0.75" stroke-miterlimit="10" x1="28.564" y1="33.415" x2="29.23" y2="30.45"/>
-<line fill="none" stroke="#CE4147" stroke-width="0.75" stroke-miterlimit="10" x1="29.23" y1="30.45" x2="39.842" y2="24.305"/>
-<line fill="none" stroke="#CE4147" stroke-width="0.75" stroke-miterlimit="10" x1="39.633" y1="26.897" x2="39.842" y2="24.305"/>
-<line fill="none" stroke="#CE4147" stroke-width="0.75" stroke-miterlimit="10" x1="51.121" y1="31.961" x2="51.385" y2="30.069"/>
-<line fill="none" stroke="#CE4147" stroke-width="0.75" stroke-miterlimit="10" x1="39.633" y1="26.897" x2="51.385" y2="30.069"/>
-<path fill="#D6E3E5" d="M39.15,28.647"/>
-<rect x="32.381" y="26.165" transform="matrix(0.2564 -0.9666 0.9666 0.2564 -2.4859 52.7891)" fill="#FFFFFF" stroke="#CE4147" stroke-width="0.25" stroke-miterlimit="10" width="1.371" height="3.69"/>
+<line fill="none" stroke="#CECECE" stroke-width="0.75" stroke-miterlimit="10" x1="28.564" y1="33.415" x2="29.23" y2="30.45"/>
+<line fill="none" stroke="#CECECE" stroke-width="0.75" stroke-miterlimit="10" x1="29.23" y1="30.45" x2="39.842" y2="24.305"/>
+<line fill="none" stroke="#CECECE" stroke-width="0.75" stroke-miterlimit="10" x1="39.633" y1="26.897" x2="39.842" y2="24.305"/>
+<line fill="none" stroke="#CECECE" stroke-width="0.75" stroke-miterlimit="10" x1="51.121" y1="31.961" x2="51.385" y2="30.069"/>
+<line fill="none" stroke="#CECECE" stroke-width="0.75" stroke-miterlimit="10" x1="39.633" y1="26.897" x2="51.385" y2="30.069"/>
+<path fill="#E5E5E5" d="M39.15,28.647"/>
+<rect x="32.381" y="26.165" transform="matrix(0.2564 -0.9666 0.9666 0.2564 -2.4859 52.7891)" fill="#FFFFFF" stroke="#CECECE" stroke-width="0.25" stroke-miterlimit="10" width="1.371" height="3.69"/>
 <polygon opacity="0.1" enable-background="new    " points="34.674,29.146 37.199,27.662 37.373,26.897 35.026,27.821 "/>
-<circle fill="none" stroke="#CE4147" stroke-width="2" stroke-miterlimit="10" cx="41.465" cy="36.69" r="21.779"/>
-<polyline opacity="0.03" fill="#6B6666" enable-background="new    " points="25.557,42.604 30.9,39.166 24.761,43.115 "/>
+<circle fill="none" stroke="#CECECE" stroke-width="2" stroke-miterlimit="10" cx="41.465" cy="36.69" r="21.779"/>
+<polyline opacity="0.03" fill="#6B6B6B" enable-background="new    " points="25.557,42.604 30.9,39.166 24.761,43.115 "/>
 <path fill="none" d="M31.248,38.979l-0.347,0.188L31.248,38.979z"/>
 <path fill="none" d="M32.662,41.647l-1.414-2.669L32.662,41.647z"/>
 <polyline opacity="0.03" enable-background="new    " points="31.248,38.979 32.662,41.647 34.744,45.438 35.384,43.223 

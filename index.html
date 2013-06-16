@@ -11,11 +11,10 @@
         <link rel="stylesheet" href="styles/bootstrap.spacelab.min.css" type="text/css">
         <link rel="stylesheet" href="styles/bootstrap-responsive.min.css" type="text/css">
         <link rel="stylesheet" href="styles/custom.css" type="text/css">
-        <link rel="stylesheet" href="styles/normalize.css" type="text/css"><!--<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" type="text/css">-->
+        <link rel="stylesheet" href="styles/normalize.css" type="text/css">
         <link rel="stylesheet" href="styles/jquery-ui.css" type="text/css"><!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-      <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+      <!--<script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>-->
+    
     </head>
     <body>
         <div class="navbar" style=" min-height: 75px; background-color: #3E3E3E; width: 100%; position: relative;background-image: url("/img/header_top.png");
@@ -35,7 +34,7 @@ background-position: bottom;">
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span4 wellToggle" style="background: #fafafa">
+                <div class="span4" style="background: #fafafa; ">
                     <div class="well one" style="padding: 2% 3% 4% 4%">
                         <div style=" margin: 0 0 5px 0;">
                             <h5 style="margin:0 0 0 0;display: inline-block;">
@@ -66,35 +65,41 @@ background-position: bottom;">
                         </div>
                     </div>
                     <div class="well two" style="height: auto;">
-                        
-                            <h5 style="margin:0px;padding: 0 0 0 4%;">
+
+                        <h5 style="margin:0px;padding: 0 0 0 4%;">
                                 Filter &amp; Compare
                             </h5>
-                           
-                            <ul class="nav nav-tabs" id="myTab" style="display: inline-block; width: 70%;">
-                            <li class="active" id="iconcontainerleft" style="width: 40%;min-height:20px; font-size: 9px;line-height: 8px;margin: 0px;float:left">
-                               <a href="#actions" style="text-align: center;padding: 0px;line-height: 10px;"> <span id="icon1" style="width:55px;height:46px;display:block;margin:auto"></span>
-                                   <span class="icontext"> School Closings and Actions</span></a>
-                                </li>
-                            <li id="iconcontainerright" style="font-size: 9px; width: 40%; margin: 0px; line-height: 10px; word-wrap: break-word;" class="">
-                                  <a href="#openings" style="text-align: center;padding: 0px;line-height: 10px;">
-                                  <span id="icon2" style="width:55px;height:46px;display:block">
-                                  </span><span class="icontext">School Openings</span></a>
+
+                        <div class="tabcontainer">
+                        
+                            
+                            <div class="tabs">
+                            <ul class="nav nav-tabs" id="myTab" style="display: inline-block">
+                            <li class="active"id="tableft" style="min-height:20px; font-size: 9px;line-height: 8px;margin: 0px;" ><a href="#actions" style="text-align: center;padding: 0px;line-height: 10px;width:100%" data-toggle="tab">
+                                <div class="tabcap" id="tabcap1"></div>
+                               <div class="tabheadercontent"> <span class="tabicon" id="icon1"></span>
+                                   <div class="tabheadertext"><span> School Closings and Actions</span> <p> Lorem ipsum dolem</p></div>
+
+                                   </div>
+                               </a> </li>
+                            
+                            <li  id="tabright" style="font-size: 9px; margin: 0px; line-height: 10px; word-wrap: break-word;"><a href="#openings" style="text-align: center;padding: 0px;line-height: 10px;width:100%" data-toggle="tab">
+                                  <div class="tabcap" id="tabcap2"></div>
+                                 <div class="tabheadercontent">
+                                    <span class="tabicon" id="icon2"></span>
+                                  <div class="tabheadertext"><span>School Openings</span><p>Loren ipsum dolem</p></div></div></a>
                                 </li>
                             
                             </ul>
-                        
+                            </div>
             
                             
                                 
                                 
-                            <!--  <p id="filterText1" style="font-size: 10px; line-height: 13px; float: left; padding: 0 0 5px 0; list-style: none; display: inline-block; position: relative; vertical-align: middle; color: black; margin: 0px;">Originating School Type
-                                </p>-->
+                           
                             <div class="tab-content" style="
-    background: #f4f4f2;
-    padding: 3% 2.5% 0 4%;
-    margin: 0 1.5% 0 2%;
-">
+  
+"> 
                             <div class="tab-pane fade active in" id="actions">
                             <div class="well" style=" height: auto; display: inline-block; padding: 0px;width:100%">
                 
@@ -126,7 +131,7 @@ background-position: bottom;">
     padding: 0px;
     margin: 0px;
 ">
-                            
+                        
                                 
                                     <ul class="filtercontainer" style=" width: 80%;margin: 0px;float:left;">
                                         <li class="filterarray ui-sortable">
@@ -233,15 +238,15 @@ background-position: bottom;">
                             <input class="btn btn-primary search" id="filter" type="button" value="Filter" style=" margin: 0 5px 0 0;"><button class="btn" id="compare">Compare</button>
                         </div>
                     </div>
+                </div>
                     </div>
-                    <script>
+                    <script type='text/javascript'>
   $(function () {
     $('#myTab a:last').tab('show');
   })
 </script>
 
-                      <div class="btn-group mapLayers" data-toggle="buttons-radio">
-                                <input class='btn btn-primary layer' id='edi' name='edi' type='button' value='Economic Development Index Layer'> <input class='btn btn-primary layer' id='default' name='edi' type='button' value='Default'></div>
+                      
 
                     <p class="alert alert-info lead" id="result_count" style="display: block;clear: both;horizontal-align: center;text-align: center;width: 100%;margin: 10px 0 0 0;background-color: orange;color: white;">
                         335 Actions found
@@ -249,9 +254,27 @@ background-position: bottom;">
                 </div>
               
                 <div class='span8'>
+                    
                     <div class='well map'>
-                        <div id="wrapper">   
-                        </div>
+
+                        
+                        <div class="dropdown btn-group mapLayers" data-toggle="dropdown" >
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Overlays
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li class='btn btn-primary layer' id='edi'><a href="#">Economic Development Index</a></li>
+        <li class='btn btn-primary layer' id='default'><a href="#">Race</a></li>
+        <li class='btn btn-primary layer' id='default'><a href="#">Poverty</a></li>
+        <li class='btn btn-primary layer' id='default'><a href="#">Vacancy</a></li>
+    </ul>
+</div>
+
+                            
+                              
+
+        
                         <div id='map_canvas' style="clear:both"></div>
                         <p class='pull-right'>
                             <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a>
@@ -265,6 +288,7 @@ background-position: bottom;">
 </script> <script type="text/javascript" src="source/bootstrap.js">
 </script> <script type="text/javascript" src="source/jquery.address.min.js">
 </script> <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places">
+</script> <script type="text/javascript" src="source/gmaps.js">
 </script> <script type="text/javascript" src="source/jquery.geocomplete.min.js">
 </script> <script type="text/javascript" src="source/maps_lib.js">
 </script> <script type='text/javascript'>
@@ -275,6 +299,7 @@ background-position: bottom;">
             $('.well.map').css('height', (h - offsetTop));
             }).resize();
 
+           
             $(function() {
             MapsLib.initialize();
             $("#search_address").geocomplete();
@@ -314,12 +339,21 @@ background-position: bottom;">
               }
             });
 
+            $('#map_canvas').append($('div.dropdown.btn-group.mapLayers'));
+            $('div.dropdown.btn-group.mapLayers').css( "display", "inline-block" )
+
+
+
+
 
 
 $('#myTab a').click(function (e) {
   e.preventDefault();
   $(this).tab('show');
 })
+
+
+
 
 
 
