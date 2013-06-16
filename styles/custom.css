@@ -36,6 +36,11 @@ div #wrapper {background-color:#FAFAFA;}
 .well.two 
 .tabcontainer {background-color:#fff;margin: 1% 1% 0 2%;}
 
+.panecol {}
+#panecol1 {}
+#panecol2 {}
+#panecol3 {}
+#panecol4 {}
 
 .well.map {padding-right: :0 0 0 2%;}
 
@@ -135,6 +140,7 @@ li#tabright.active #tabcap2 { background-image:url("../img/tab_capgreen.png");}
     padding-left: 2%;
     word-wrap: break-word;
     padding-top: 3%;
+    width: 50%;
 }
 .tabheadertext:hover {}
 .tabheadertext{opacity:1;color:black;}
@@ -157,14 +163,55 @@ li#tabright.active #icon2 {background-image:url("../img/opening.svg");background
 input[type=checkbox] { float:left;display:none; height: 0px; width: 0px;} 
 .checkboxCustom {color:black;}
 .checkboxCustom:before {color:black;}
-.checkboxCustom label  { display: -moz-inline-stack; display: inline-block; text-align:center; vertical-align: middle; *vertical-align: auto; zoom: 1; *display: inline; padding: 8px 12px 7px; margin-bottom: 4px; background-color: white; border: 1px solid #cccdc7; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; color: #787876; font-size: 85%; line-height: 70%; margin-right: 2px;}
-.checkboxCustom label:hover  {color: #e8554e; text-decoration: none; border-color: orange; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+.checkboxCustom label  { display: -moz-inline-stack; display: inline-block; text-align:center; vertical-align: middle; *vertical-align: auto; zoom: 1; *display: inline; background-color: white; font-size: 85%}
+.checkboxCustom label:hover  {}
 .checkboxCustom label a {font-size: 70%;text-align:center;}
-.checkboxCustom label a:hover {text-decoration:none;color:orange;border-bottom:1px dotted orange}
-.checkboxCustom input[type=checkbox]:checked + label a {text-decoration:none;color:orange}
-.checkboxCustom input[type=checkbox]:checked + label a:after {content: '  x'}
-.checkboxCustom input[type=checkbox]:not(:checked) + label a {color:black;opacity:.3;}
-.checkboxCustom input[type=checkbox]:not(:checked) + label {opacity:.3}
+.checkboxCustom label a:hover {text-decoration:none;color:black;}
+.checkboxCustom input[type=checkbox]:checked + label a {text-decoration:none;color:black;font-size:13px;}
+.checkboxCustom input[type=checkbox]:checked + label a:before { /*Add another block-level blank space*/
+content:"\00AC";
+position:relative;
+font-weight:bold;
+font-size:15px;
+display:inline-block;
+color:green;
+
+/*Make it a small rectangle so the border will create an L-shape*/
+
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+height:20px;
+  width:20px;
+  border:1px solid green;
+  border-radius:50%;
+}
+.checkboxCustom input[type=checkbox]:not(:checked) + label a:before { /*Add another block-level blank space*/
+content:"\200F";
+position:relative;
+font-weight:bold;
+font-size:15px;
+display:inline-block;
+color:black;
+opacity:.1;
+
+/*Make it a small rectangle so the border will create an L-shape*/
+
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+
+height:20px;
+  width:20px;
+  border:1px solid black;
+  border-radius:50%;
+}
+.checkboxCustom input[type=checkbox]:not(:checked) + label a {color:black;opacity:1;font-size:13px}
+.checkboxCustom input[type=checkbox]:not(:checked) + label {opacity:1}
 .filterarray {float:left;list-style: none; display: inline}
 .filtercontainer {clear:both;margin:0px;padding:0px;display: inline-block}
 #result_count {float:left;display:none;width:50%;height:15px;margin:0px;border-radius:0px;text-align:center;z-index:1000;position:relative;background-color:none;font-size:14px;padding:0 0 15px 0;opacity:1;color:orange;}
