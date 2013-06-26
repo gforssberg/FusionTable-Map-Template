@@ -35,7 +35,7 @@ background-position: bottom;">
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span4" style="background: #fafafa; ">
-                    <div class="well one" style="padding: 2% 3% 4% 4%">
+                   <!-- <div class="well one" style="padding: 2% 3% 4% 4%">
                         <div style=" margin: 0 0 5px 0;">
                             <h5 style="margin:0 0 0 0;display: inline-block;">
                                 Search
@@ -63,12 +63,12 @@ background-position: bottom;">
                         <div>
                             <input class="btn btn-primary search" id="search" type="button" value="Search" style=" margin: 0 5px 0 0;"><button class="btn" id="reset">Reset</button>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="well two" style="height: auto;">
 
-                        <h5 style="margin:0px;padding: 0 0 0 4%;">
+                       <!-- <h5 style="margin:0px;padding: 0 0 0 4%;">
                                 Filter &amp; Compare
-                            </h5>
+                            </h5>-->
 
                         <div class="tabcontainer">
                         
@@ -101,29 +101,23 @@ background-position: bottom;">
   
 "> 
                             <div class="tab-pane fade active in" id="actions">
-                            <div class="panecol" id="panecol1"  style=" height: auto; display: inline-block; padding: 0px;width:100%">
+                            <div class="panecol" id="panecol1"  style="">
                 
-
+                            <h6 class="filterheader"> By School Type </h6>
                                 
-                                    <ul class="filtercontainer" style=" width: 80%; vertical-align: middle; margin:0px;float:left">
+                                    <ul class="filtercontainer" style="">
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop1" name="" checked="checked"> <label for="origop1"><a>District</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="closetype1" name="" checked="checked"> <label for="closetype1"></label><a>District</a><span class="filtercount" id="closetypedistrict"></span></span>
                                         </li>
-                                       <!-- <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop4" name="" checked="checked"> <label for="origop4"><a>District-Selective</a></label></span>
-                                        </li>
+                                      
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop6" name="" checked="checked"> <label for="origop6"><a>District-Performance</a></label></span>
-                                        </li>-->
-                                        <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop2" name="" checked="checked"> <label for="origop2"><a>Charter</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="closetype2" name="" checked="checked"> <label for="closetype2"></label><a>Charter</a><span class="filtercount" id="closetypecharter"></span></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop3" name="" checked="checked"> <label for="origop3"><a>Contract</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="closetype3" name="" checked="checked"> <label for="closetype3"></label><a>Contract</a><span class="filtercount" id="closetypecontract"></span></span>
                                         </li>
                                     </ul>
-                               <span style=" float: right; font-size: 9px; width: 20%; list-style: none; text-align: center; line-height: 10px; display: inline-block;">Operator of School Acted On
-                                </span>
+                              
                         </div>
                         <div class="panecol" id="panecol2"  style="
     height: auto;
@@ -131,88 +125,83 @@ background-position: bottom;">
     padding: 0px;
     margin: 0px;
 ">
-                        
+                        <h6 class="filterheader"> By Action </h6>
                                 
-                                    <ul class="filtercontainer" style=" width: 80%;margin: 0px;float:left;">
+                                    <ul class="filtercontainer" style="">
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action1" name="" checked="checked"> <label for="action1"><a>Closure</a></label></span>
-                                        </li>
-                                        <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action2" name="" checked="checked"> <label for="action2"><a>Closure &amp; Consolidation</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="actiontype1" name="" checked="checked"> <label for="actiontype1"></label><a>Closure</a></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action3" name="" checked="checked"> <label for="action3"><a>Consolidation</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="actiontype2" name="" checked="checked"> <label for="actiontype2"></label><a>Closure &amp; Consolidation</a></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action6" name="" checked="checked"> <label for="action6"><a>Turnaround</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="actiontype3" name="" checked="checked"> <label for="actiontype3"></label><a>Consolidation</a></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action4" name="" checked="checked"> <label for="action4"><a>Consolidation &amp; Phase-Out</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="actiontype6" name="" checked="checked"> <label for="actiontype6"></label><a>Turnaround</a></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action5" name="" checked="checked"> <label for="action5"><a>Consolidation &amp; Turnaround</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="actiontype4" name="" checked="checked"> <label for="actiontype4"></label><a>Consolidation &amp; Phase-Out</a></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="action7" name="" checked="checked"> <label for="action7"><a>Phaseout</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="actiontype5" name="" checked="checked"> <label for="actiontype5"></label><a>Consolidation &amp; Turnaround</a></span>
                                         </li>
-                                        <li class="filterarray ui-sortable" style="">
-                                            <span class="checkboxCustom" style="display: none;"><input type="checkbox" class="checkboxTwoInput" id="action8" name=""> <label for="action8"><a>Opening</a></label></span>
+                                        <li class="filterarray ui-sortable">
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="actiontype7" name="" checked="checked"> <label for="actiontype7"></label><a>Phaseout</a></span>
                                         </li>
+                                         <li class="filterarray ui-sortable">
+                                            <span class="checkboxCustom" style="display:none"><input type="checkbox"  id="actiontype8" name="" checked="checked"> <label for="actiontype8"></label><a>Opening</a></span>
+                                        </li>
+                                        
                                     </ul>
-                             <span style=" float: right; font-size: 9px; width: 20%; list-style: none; text-align: center; display: inline-block; padding: auto; margin: auto; line-height: 93px;">Action Type
-                                </span>
+                            
                         </div>
-                        <div  class="panecol" id="panecol13"  style=" width: 100%; display: inline-block; margin: 0px;">
-                            <!--   <p id="filterText3">Receiving School Type-->
+                        <div  class="panecol" id="panecol3"  style=" ">
+                             <h6 class="filterheader">By Receiving Type/Result</h6>
                                
                                     <ul class="filtercontainer" style=" width: 80%;margin: 0px;float:left">
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="recop1" name="" checked="checked"> <label for="recop1"><a>District</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="receivetype1" name="" checked="checked"> <label for="receivetype1"></label><a>District</a></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="recop2" name="" checked="checked"> <label for="recop2"><a>Charter</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="receivetype2" name="" checked="checked"> <label for="receivetype2"></label><a>Charter</a></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="recop3" name="" checked="checked"> <label for="recop3"><a>Contract</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="receivetype3" name="" checked="checked"> <label for="receivetype3"></label><a>Contract</a></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="recop4" name="" checked="checked"> <label for="recop4"><a>Demolished</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="receivetype4" name="" checked="checked"> <label for="receivetype4"></label><a>Demolished</a></span>
                                         </li>
                                         <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="recop5" name="" checked="checked"> <label for="recop5"><a>Other (Vacant, Private, etc.)</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="receivetype5" name="" checked="checked"> <label for="receivetype5"></label><a>Other (Vacant, Private, etc.)</a></span>
                                         </li>
-                                        <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="recop6" name="" checked="checked"> <label for="recop6"><a>N/A</a></label></span>
-                                        </li>
-                                        <li class="filterarray ui-sortable">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="recop0" name="" checked="checked"> <label for="recop0"><a>N/A</a></label></span>
-                                        </li>
+                                       
                                     </ul>
-                                <span style=" float: right; font-size: 9px; width: 20%; padding: 4% 0 4% 0; list-style: none; text-align: center; line-height: 10px;">Receiving School Operator/Result
-                                </span>
+                                
                         </div>
                     </div>
                           <div class="tab-pane fade" id="openings">
                         <div class="panecol" id="panecol4"  style=" height: auto; display: inline-block; padding: 0px;">
+                            <h6 class="filterheader">Openings by School Type</h6>
                 
                 
-                                <li style=" float: right; font-size: 9px; width: 20%; padding: 4% 0% 4% 0; list-style: none; text-align: center; line-height: 10px;">Operator of Opening School
-                                </li>
-                                    <ul class="filtercontainer" style=" width: 80%; vertical-align: middle; margin:0px">
+                              
+                                    <ul class="filtercontainer" style="">
+                                       
                                         <li class="filterarray ui-sortable" style="">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop1" name="" checked="checked"> <label for="origop1"><a>District</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="opentype1" name="" checked="checked"> <label for="opentype1"></label><a>District</a></span>
                                         </li>
                                         <li class="filterarray ui-sortable" style="">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop4" name="" checked="checked"> <label for="origop4"><a>District-Selective</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="opentype4" name="" checked="checked"> <label for="opentype4"></label><a>District-Selective</a></span>
                                         </li>
                                         <li class="filterarray ui-sortable" style="">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop6" name="" checked="checked"> <label for="origop6"><a>District-Performance</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="opentype6" name="" checked="checked"> <label for="opentype6"></label><a>District-Performance</a></span>
                                         </li>
                                         <li class="filterarray ui-sortable" style="">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop2" name="" checked="checked"> <label for="origop2"><a>Charter</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="opentype2" name="" checked="checked"> <label for="opentype2"></label><a>Charter</a></span>
                                         </li>
                                         <li class="filterarray ui-sortable" style="">
-                                            <span class="checkboxCustom" style=""><input type="checkbox" class="checkboxTwoInput" id="origop3" name="" checked="checked"> <label for="origop3"><a>Contract</a></label></span>
+                                            <span class="checkboxCustom" style=""><input type="checkbox"  id="opentype3" name="" checked="checked"> <label for="opentype3"></label><a>Contract</a></span>
                                         </li>
                                     </ul>
                                 
@@ -351,7 +340,6 @@ $('#myTab a').click(function (e) {
   e.preventDefault();
   $(this).tab('show');
 })
-
 
 
 

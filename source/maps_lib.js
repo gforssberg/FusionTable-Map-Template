@@ -290,36 +290,30 @@ var MapsLib = {
 
     var type_column = "'ActionFlag'"; 
     var searchType = type_column + " IN (-1,";
-    if ($("#action1").is(':checked')) searchType += "1,";
-    if ($("#action2").is(':checked')) searchType += "2,";
-    if ($("#action3").is(':checked')) searchType += "3,";
-    if ($("#action4").is(':checked')) searchType += "4,";
-    if ($("#action5").is(':checked')) searchType += "5,";
-    if ($("#action6").is(':checked')) searchType += "6,";
-    if ($("#action7").is(':checked')) searchType += "7,";
-    if ($("#action8").is(':checked')) searchType += "8,";
-    whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+    if ($("#actiontype1").is(':checked')) searchType += "1,";
+    if ($("#actiontype2").is(':checked')) searchType += "2,";
+    if ($("#actiontype3").is(':checked')) searchType += "3,";
+    if ($("#actiontype4").is(':checked')) searchType += "4,";
+    if ($("#actiontype5").is(':checked')) searchType += "5,";
+    if ($("#actiontype6").is(':checked')) searchType += "6,";
+    if ($("#actiontype7").is(':checked')) searchType += "7,"; 
+    if ($("#actiontype8").is(':checked')) searchType += "8,"; 
+
+
+    whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")"; 
 
     var type_column = "'TypeFlag'";
     var searchType = type_column + " IN (-1,";
-    if ($("#origop1").is(':checked')) searchType += "1,";
-    if ($("#origop2").is(':checked')) searchType += "2,";
-    if ($("#origop3").is(':checked')) searchType += "3,";
-    if ($("#origop4").is(':checked')) searchType += "4,";
-    if ($("#origop6").is(':checked')) searchType += "6,";
-    
-    whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+    if ($("#closetype1").is(':checked')) searchType += "1,";
+    if ($("#closetype2").is(':checked')) searchType += "2,";
+    if ($("#closetype3").is(':checked')) searchType += "3,"; 
+    if ($("#opentype1").is(':checked')) searchType += "21,";
+    if ($("#opentype2").is(':checked')) searchType += "22,";
+    if ($("#opentype3").is(':checked')) searchType += "23,";
+    if ($("#opentype4").is(':checked')) searchType += "24,";
+    if ($("#opentype6").is(':checked')) searchType += "26,";
 
-   /* var type_column = "'RecTypeFlag'";
-    var searchType = type_column + " IN (-1,";
-    if ($("#recop1").is(':checked')) searchType += "1,";
-    if ($("#recop2").is(':checked')) searchType += "2,";
-    if ($("#recop3").is(':checked')) searchType += "3,";
-    if ($("#recop4").is(':checked')) searchType += "4,";
-    if ($("#recop5").is(':checked')) searchType += "5,";
-    if ($("#recop6").is(':checked')) searchType += "6,";
-    if ($("#recop0").is(':checked')) searchType += "0,";
-    whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")"; */
+    whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")"; 
 
 
     whereClause += " AND 'Year' >= '" + $("#age-selected-start").html() + "'";
@@ -377,8 +371,8 @@ var MapsLib = {
         select: MapsLib.locationColumn,
         where: whereClause
       },
-      styleId: 3,
-      templateId: 4
+      styleId: 4,
+      templateId: 5
     });
     MapsLib.searchrecords.setMap(map);
     MapsLib.getCount(whereClause);
@@ -514,6 +508,8 @@ var MapsLib = {
   }
 }
 
+
+
   //-----custom functions-------
  
  
@@ -532,44 +528,68 @@ $('#edi').click(function(){
             MapsLib.edi.setMap(null);
             });
 
-           /*
+            
 
-            $(document).ready(function() {
-            $('#sub1').hover(function() {
-         $("#sub2,#sub3").stop(true,false).animate({"opacity": .2},500);
-      //   $("#sub1").animate({"margin-top" :"15px"});
-         $("#filterText1").stop(true,false).fadeIn(1);  
-       }, function () {
-         $("#sub2,#sub3").stop(true,false).animate({"opacity": 1},500);
-     //    $("#sub1").animate({"margin-top" :"0px"})
-         $("#filterText1").stop(true,false).fadeOut(1);             
-});
-});
+ var apiKey = "AIzaSyDtJXRQCXB-WlDve_nLtHbeDjj3q4saCag";
+ var queryUrlHead = 'https://www.googleapis.com/fusiontables/v1/query?sql=';
+ var queryUrlTail = '&key=' + apiKey + '&callback=?';
+ var tableid = MapsLib.fusionTableId;
+ var searchString = 1
+       
 
-$(document).ready(function() {
-            $('#sub2').hover(function() {
-         $("#sub1,#sub3").stop(true,false).animate({"opacity": .2},500);
-         $("#filterText2").stop(true,false).fadeIn(1);  
-       }, function () {
-         $("#sub1,#sub3").stop(true,false).animate({"opacity": 1},500);
-         $("#filterText2").stop(true,false).fadeOut(1);             
-});
-});
+var query =   "SELECT COUNT() FROM " + tableid + " WHERE 'TypeFlag' CONTAINS IGNORING CASE '" + searchString + "'"
+var queryurl = encodeURI(queryUrlHead + query + queryUrlTail);
+var getCount = $.get(queryurl,
+function(data){
+try{
+$('#closetypedistrict').html((data.rows[0][0]));
+}
+catch(err){
+$('#closetypedistric').html('0');
+}
+},
+"jsonp");
 
-$(document).ready(function() {
-            $('#sub3').hover(function() {
-         $("#sub1,#sub2").stop(true,false).animate({"opacity": .2},500);
-         $("#filterText3").stop(true,false).fadeIn(1);  
-       }, function () {
-         $("#sub1,#sub2").stop(true,false).animate({"opacity": 1},500);
-         $("#filterText3").stop(true,false).fadeOut(1);             
-});
-});
+var searchString = 2
 
- 
-*/
+var query =   "SELECT COUNT() FROM " + tableid + " WHERE 'TypeFlag' CONTAINS IGNORING CASE '" + searchString + "'"
+var queryurl = encodeURI(queryUrlHead + query + queryUrlTail);
+var getCount = $.get(queryurl,
+function(data){
+try{
+$('#closetypecharter').html((data.rows[0][0]));
+}
+catch(err){
+$('#closetypecharter').html('0');
+}
+},
+"jsonp");
 
-           
+var searchString = 3
+       
+
+var query =   "SELECT COUNT() FROM " + tableid + " WHERE 'TypeFlag' CONTAINS IGNORING CASE '" + searchString + "'"
+var queryurl = encodeURI(queryUrlHead + query + queryUrlTail);
+var getCount = $.get(queryurl,
+function(data){
+try{
+$('#closetypecontract').html((data.rows[0][0]));
+}
+catch(err){
+$('#closetypecontract').html('0');
+}
+},
+"jsonp");
+
+
+
+
+
+
+
+
+
+    
 
 
           
@@ -579,26 +599,5 @@ $(document).ready(function() {
 
 
 
-       /*   setTimeout(function() {
-    //console.log("refetching map tiles");
-    MapsLib.uncacheTiles();
-  },3000);*/
-
-      
-
-
-
-/*$('div').each(function(){
-    var $this = $(this),
-       offset = $this.offset(),
-        width = $this.outerWidth(),
-       height = $this.outerHeight()
-
-    $body.append(
-        $('<div style="position:absolute;border:1px solid #00F;background:#99F;opacity:.3;"></div>')
-        .css(offset)
-        .css({ width: width, height: height })
-    );
-});*/
 
    
